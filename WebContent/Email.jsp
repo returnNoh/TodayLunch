@@ -17,7 +17,7 @@ request.setCharacterEncoding("utf-8");
  
 //String from = request.getParameter("from");
 String from = "todaylunchtest@gmail.com";
-String to = request.getParameter("to");
+String to = request.getParameter("email");
 //String subject = request.getParameter("subject");
 String subject = "인증번호를 확인해주세요";
 //String content = request.getParameter("content");
@@ -72,11 +72,11 @@ try{
 } catch(Exception e){
     e.printStackTrace();
     
-    out.println("<script>alert('Send Mail Failed..');history.back();</script>");
+    out.println("<script>alert('Send Mail Failed..');</script>");
     // 오류 발생시 뒤로 돌아가도록
     return;
 }
  
-out.println("<script>alert('Send Mail Success!!');location.href='index.jsp';</script>");
+out.println("<script>alert('Send Mail Success!!');</script>");
 // 성공 시
 %>

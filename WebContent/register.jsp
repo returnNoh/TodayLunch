@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <title> 가입신청 예제 </title>
  <script type="text/javascript" src="./jquery-3.2.1.min.js"></script>
- <script language="JavaScript" src="prototype.js"></script>
  <script language="JavaScript" src="searchWord.js"></script>
  <script>
  /* $(function(){
