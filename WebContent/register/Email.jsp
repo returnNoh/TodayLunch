@@ -16,13 +16,13 @@
 request.setCharacterEncoding("utf-8");
  
 //String from = request.getParameter("from");
-String from = "todaylunchtest@gmail.com";
-String to = request.getParameter("email");
+String from = "todaylunchtest@gmail.com"; // 보내는이
+String to = "returnNoh@gmail.com";//request.getParameter("email"); // 받는사람 
 //String subject = request.getParameter("subject");
-String subject = "인증번호를 확인해주세요";
+String subject = "TodayLunch 회원가입 인증 이메일입니다"; //제목
 //String content = request.getParameter("content");
-String content = "인증번호는 0000입니다";
-// 입력값 받음
+String content = "<a href='http://localhost:8080/TodayLunch/emailCheck?p_id=admin'>인증 확인 링크</a> 링크를 눌러 인증을 완료하여주세요.";
+// 내용
  
 Properties p = new Properties(); // 정보를 담을 객체
  

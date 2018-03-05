@@ -17,7 +17,10 @@
 패스워드::<input type="password" name="passwd" size="10">
 <br>
 
-<input type="submit" value="로그인"><input type="button" value="뒤로 가기" onclick="history.back()">
+<input type="submit" value="로그인"><input type="button" value="뒤로 가기" onclick="history.back()"><br>
+<a href="/TodayLunch/register/regiselect.lunch">회원가입</a><br>
+<a href="/TodayLunch/register/IdSearch.lunch">아이디찾기</a>/
+<a href="/TodayLunch/register/PwdSearch.lunch">비밀번호찾기</a>
 
 
 </form>
