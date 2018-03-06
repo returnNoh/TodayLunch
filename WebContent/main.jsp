@@ -12,6 +12,12 @@
 <jsp:include page="top.jsp"></jsp:include>
 <center>
 메인페이지 입니다
+
+<a href="/TodayLunch/Rest/showRest.lunch?r_id=rest1">rest1</a><br>
+<form method="get" action="/TodayLunch/Rest/showRest.lunch">
+<input type="text" name="r_id">
+<input type="submit" value="보내기">
+</form>
 </center>
 
 </body>

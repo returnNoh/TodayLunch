@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    		<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,13 +18,14 @@
     <div id="map"></div>
     <script>
       function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
+        var uluru = {lat: <%=request.getParameter("wi")%>, lng: <%=request.getParameter("gy")%>};
+        
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
           center: uluru
         });
         var marker = new google.maps.Marker({
-          position: {lat: -25.363, lng: 131.044},
+          position: {lat: <%=request.getParameter("wi")%>, lng: <%=request.getParameter("gy")%>},
           map: map
         });
       }

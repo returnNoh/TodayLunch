@@ -11,7 +11,20 @@
 <title>식당 소개</title>
 </head>
 <body>
-  식당 소개 페이지
+  <c:set var="rest_info" value="${rest_info}"/> 
+  
+  아이디:${rest_info.r_id}
+  주소:${rest_info.r_add}
+  이름:${rest_info.r_name}
+  소개문:${rest_info.r_info}
+  
+<jsp:include page="/map.jsp">
+<jsp:param value="${rest_info.r_wi}" name="wi"/>
+<jsp:param value="${rest_info.r_gy}" name="gy"/>
+</jsp:include> 
+ 
+ 
+ 
   
 </body>
 </html>
