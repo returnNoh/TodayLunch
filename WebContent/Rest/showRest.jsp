@@ -13,12 +13,12 @@
 <body>
   <c:set var="rest_info" value="${rest_info}"/> 
   
-  아이디:${rest_info.r_id}
-  주소:${rest_info.r_add}
-  이름:${rest_info.r_name}
-  소개문:${rest_info.r_info}
+  아이디:${rest_info.r_id}<br>
+  주소:${rest_info.r_add}<br>
+  이름:${rest_info.r_name}<br>
+  소개문:${rest_info.r_info}<br>
   
-<jsp:include page="/map.jsp">
+<jsp:include page="map.jsp">
 <jsp:param value="${rest_info.r_wi}" name="wi"/>
 <jsp:param value="${rest_info.r_gy}" name="gy"/>
 </jsp:include> 

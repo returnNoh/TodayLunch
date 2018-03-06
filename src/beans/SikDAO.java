@@ -73,6 +73,7 @@ public class SikDAO {
 			// 식권사용정보 등록
 			System.out.println("식권 사용정보 추가중");
 			pstmt2=con2.prepareStatement("insert into u_sik values(?,?,now())");
+			//con2.setautocommit()
 			pstmt2.setString(1,p_id);
 			pstmt2.setString(2, r_name);
 			pstmt2.executeUpdate();
