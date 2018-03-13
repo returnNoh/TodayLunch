@@ -17,6 +17,7 @@ public class UseSikAction implements CommandAction {
 		String r_name = request.getParameter("r_name");
 		
 		SikDAO sikdao = new SikDAO();
+		
 		String check = sikdao.usesik(p_id, p_siknum,r_name);
 		
 		request.setAttribute("usesik", check);

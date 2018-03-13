@@ -22,6 +22,8 @@
 <a href="/TodayLunch/register/IdSearch.lunch">아이디찾기</a>/
 <a href="/TodayLunch/register/PwdSearch.lunch">비밀번호찾기</a>
 
+<button onclick="location.href='main.jsp'">이동</button>
+
 
 </form>
 

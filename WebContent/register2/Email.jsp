@@ -13,16 +13,26 @@
 <%@page import="javax.mail.Authenticator"%>
 <%@page import="java.util.Properties"%>
 <%
+
 request.setCharacterEncoding("utf-8");
- 
+String p_siknum=request.getParameter("p_siknum");//인증링크에 들어갈 인증번호값 // 전달받아야 할 값
+String p_id=request.getParameter("p_id");	//인증링크에 들어갈 id값 // 전달받아야 할 값
 //String from = request.getParameter("from");
-String from = "todaylunchtest@gmail.com"; // 보내는이
-String to = "returnNoh@gmail.com";//request.getParameter("email"); // 받는사람 
+String from = "todaylunchtest@gmail.com"; // 보내는이 // 고정임
+String to = "returnNoh@gmail.com";//request.getParameter("email"); // 받는사람 // 전달받아야 할 값 
 //String subject = request.getParameter("subject");
 String subject = "TodayLunch 회원가입 인증 이메일입니다"; //제목
 //String content = request.getParameter("content");
-String content = "<a href='http://localhost:8080/TodayLunch/emailCheck?p_id=admin'>인증 확인 링크</a> 링크를 눌러 인증을 완료하여주세요.";
+//String content = "<a href='http://localhost:8080/TodayLunch/register/emailCheck?p_id="+p_id+"&p_siknum="+p_siknum+"'>인증 확인 링크</a> 링크를 눌러 인증을 완료하여주세요.";
+
+String content = "<a href='http://localhost:8080/TodayLunch/register/emailCheck?p_id=admin'>인증 확인 링크</a> 링크를 눌러 인증을 완료하여주세요.";
+
 // 내용
+
+/* 
+request.setAttribute();
+링크열 ? 변수=값 get방식
+*/
  
 Properties p = new Properties(); // 정보를 담을 객체
  

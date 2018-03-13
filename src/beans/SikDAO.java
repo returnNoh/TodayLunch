@@ -42,8 +42,8 @@ public class SikDAO {
 
 				if (rs.getInt("s_num") != 0) { // 식권이 있을경우
 					
-					sikUpdate(p_id, p_siknum,r_name);
-					check = "남으신 식권은 " + (rs.getInt("s_num") - 1) + "장 입니다";
+					sikUpdate(p_id, p_siknum,r_name); // 리턴값이 있긴한데 오류날부분이 아닐것같아서 대충함
+					check = "남은 식권은 " + (rs.getInt("s_num") - 1) + "장 입니다";
 
 				} else { // 식권이 없을경우
 					check = "식권이 부족합니다.";

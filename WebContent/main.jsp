@@ -15,8 +15,14 @@
 
 <a href="/TodayLunch/Rest/showRest.lunch?r_id=rest1">rest1</a><br>
 <form method="get" action="/TodayLunch/Rest/showRest.lunch">
-<input type="text" name="r_id">
+식당 아이디를 입력하면 해당 식당 소개페이지로 이동:<input type="text" name="r_id">
 <input type="submit" value="보내기">
+
+<%
+session.setAttribute("s_id", "person3");
+%>
+
+<a href="/TodayLunch/mypage_p/sikInfo.lunch">이동용</a>
 </form>
 </center>
 
