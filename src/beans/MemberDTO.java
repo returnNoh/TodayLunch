@@ -5,7 +5,7 @@ public class MemberDTO {
 	private String p_passwd;
 	private String p_email;
 	private String p_name;
-	private int p_check;
+	
 	private String p_siknum;
 	
 	private String r_id;
@@ -51,9 +51,7 @@ public class MemberDTO {
 	public String getP_name() {
 		return p_name;
 	}
-	public int getP_check() {
-		return p_check;
-	}
+	
 	public String getP_siknum() {
 		return p_siknum;
 	}
@@ -69,9 +67,7 @@ public class MemberDTO {
 	public void setP_name(String p_name) {
 		this.p_name = p_name;
 	}
-	public void setP_check(int p_check) {
-		this.p_check = p_check;
-	}
+	
 	public void setP_siknum(String p_siknum) {
 		this.p_siknum = p_siknum;
 	}

@@ -10,8 +10,8 @@
     <style>
       #map {
       	float:right;
-        height: 400px;
-        width: 30%;
+        height: 200pt;
+        width: 100%;
        }
     </style>
   </head>
@@ -31,7 +31,6 @@
         });
       }
     </script>
-    <h3 style="float:right">map.jsp:<%=request.getParameter("r_add") %></h3>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVlODe5vr86imNiC2k01MLD47VLU8kqFM&callback=initMap">
     </script>

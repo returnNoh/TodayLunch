@@ -119,7 +119,6 @@ private DBConnectionMgr pool;
 				mem.setP_passwd(rs.getString("P_passwd"));
 				mem.setP_email(rs.getString("P_email"));
 				mem.setP_name(rs.getString("P_name"));
-				mem.setP_check(rs.getInt("P_check"));
 				mem.setP_siknum(rs.getString("P_siknum"));
 				
 			}

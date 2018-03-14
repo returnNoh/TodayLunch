@@ -35,11 +35,9 @@ $(function(){
 		
 		return false;
 	}) */
-	
-	
 		$('a').click(function(){
 		
-			var name=$(this).attr("id");
+			var n=$(this).attr("id");
 		$.ajax('getUser.jsp',{type:name,success: function(data){
 			$('#tab').empty();
 			$('#tab').append(data);

@@ -10,10 +10,12 @@
 </head>
 <body>
 
-<input type="button" value="전체 유저 보기" onclick="location:href='/TodayLunch/Admin/showUser.lunch'">
-<input type="button" value="전체 식권 사용내역 보기" onclick="location:href='/TodayLunch/Admin/showSik.lunch'">
-<input type="button" value="전체 뭐볼까" onclick="location:href='/TodayLunch/Admin/showUser.lunch'">
-<input type="button" value="전체 버튼?" onclick="location:href='/TodayLunch/Admin/showUser.lunch'">
+<input type="button" value="개인 유저 보기" onclick="location.href='/TodayLunch/Admin/getPeople.lunch'">
+<input type="button" value="식당 유저 보기" onclick="location.href='/TodayLunch/Admin/getRest.lunch'">
+
+<input type="button" value="전체 식권 사용내역 보기" onclick="location.href='/TodayLunch/Admin/showSik.lunch'">
+<input type="button" value="전체 뭐볼까" onclick="location.href='/TodayLunch/Admin/showUser.lunch'">
+<input type="button" value="전체 버튼?" onclick="location.href='/TodayLunch/Admin/showUser.lunch'">
 
 
 
