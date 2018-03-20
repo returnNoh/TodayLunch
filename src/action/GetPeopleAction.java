@@ -30,7 +30,7 @@ public class GetPeopleAction implements CommandAction {
 	   List list=null;//화면에 출력할 레코드데이터
 	   AdminDAO dao=new AdminDAO();
 
-	   count=dao.getArticleCount();//select count(*) from board
+	   count=dao.getArticleCount(type);//select count(*) from board
 	   System.out.println("현재 검색 레코드수(count)=>"+count);
 	   
 		//추가2 페이징 가져오기
@@ -38,7 +38,11 @@ public class GetPeopleAction implements CommandAction {
 		   
 	   if(count > 0){
 		   System.out.println(pgList.get("startRow")+":::"+pgList.get("endRow"));
-		   list=dao.getPeople(pgList.get("startRow"), pgList.get("pageSize"));//5개씩 (endRow X)
+		   if(type.equals("person")) {
+		   list=dao.getPeople(type,pgList.get("startRow"), pgList.get("pageSize"));//5개씩 (endRow X)
+		   }else {
+			   list=dao.getRest(type,pgList.get("startRow"), pgList.get("pageSize"));
+		   }
 	   }else {
 		   list=Collections.EMPTY_LIST;//아무것도 없다는 표시
 	   }

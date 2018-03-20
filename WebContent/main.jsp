@@ -3,6 +3,7 @@
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     		<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
+
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -39,132 +40,14 @@
 	<body>
 		
 			
-		<!-- Shopping cart Modal -->
-		<div class="modal fade" id="shoppingcart1" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">Shopping Cart</h4>
-					</div>
-					<div class="modal-body">
-						<!-- Items table -->
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Quantity</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><a href="#">Exception Reins Evocative</a></td>
-									<td>2</td>
-									<td>$200</td>
-								</tr>
-								<tr>
-									<td><a href="#">Taut Mayoress Alias Appendicitis</a></td>
-									<td>1</td>
-									<td>$190</td>
-								</tr>
-								<tr>
-									<td><a href="#">Sinter et Molests Perfectionist</a></td>
-									<td>4</td>
-									<td>$99</td>
-								</tr>
-								<tr>
-									<th></th>
-									<th>Total</th>
-									<th>$489</th>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Continue Shopping</button>
-						<button type="button" class="btn btn-info">Checkout</button>
-					</div>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-		<!-- Model End -->
+		
 		
 		<!-- Page Wrapper -->
 		<div class="wrapper">
 		
 			<!-- Header Start -->
+		<jsp:include page="top.jsp"></jsp:include>	
 			
-			<div class="header">
-				<div class="container">
-					<!-- Header top area content -->
-					<div class="header-top">
-						<div class="row">
-							
-							<div class="col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8">
-								<!-- Header top right content search box -->
-								<div class=" header-search">
-									<form class="form" role="form">
-										<div class="input-group">
-										  <input type="text" class="form-control" placeholder="Search...">
-										  <span class="input-group-btn">
-											<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-										  </span>
-										</div>
-									</form>
-								</div>
-							</div>
-							
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4 col-sm-5">
-							<!-- Link -->
-							<a href="index.html">
-								<!-- Logo area -->
-								<div class="logo">
-									<img class="img-responsive" src="img/logo.png" alt="" />
-									<!-- Heading -->
-									<h1>오늘의 점심</h1>
-									<!-- Paragraph -->
-									<p>강남역 주변의 점심 뷔페 메뉴</p>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-8 col-sm-7">
-							<!-- Navigation -->
-							<nav class="navbar navbar-default navbar-right" role="navigation">
-								<div class="container-fluid">
-									<!-- Brand and toggle get grouped for better mobile display -->
-									<div class="navbar-header">
-										<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-											<span class="sr-only">Toggle navigation</span>
-											<span class="icon-bar"></span>
-											<span class="icon-bar"></span>
-											<span class="icon-bar"></span>
-										</button>
-									</div>
-
-									<!-- Collect the nav links, forms, and other content for toggling -->
-									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-										<ul class="nav navbar-nav">
-											
-											
-											<li><a href="gallery.html"><img src="img/nav-menu/nav3.jpg" class="img-responsive" alt="" /> Shop List</a></li>
-											
-											<li class="dropdown">
-												<a href="#"><img src="img/nav-menu/nav5.jpg" class="img-responsive" alt="" /> Login </a>
-												
-											</li>
-											<li><a href="aboutus.html"><img src="img/nav-menu/nav6.jpg" class="img-responsive" alt="" /> Register</a></li>
-										</ul>
-									</div><!-- /.navbar-collapse -->
-								</div><!-- /.container-fluid -->
-							</nav>
-						</div>
-					</div>
-				</div> <!-- / .container -->
-			</div>
 			
 			<!-- Header End -->
 			
@@ -1048,79 +931,57 @@
 				
 				<!-- Chefs End -->
 				
-				<!-- Testimonial Start -->
 				
-				
-				<!-- Testimonial End -->
 				
 				
 			</div><!-- / Main Content End -->	
 			
 			<!-- Footer Start -->
 			
-			<div class="footer padd">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<!-- Footer widget -->
-							<div class="footer-widget">
-								<!-- Logo area -->
-								<div class="logo">
-									<img class="img-responsive" src="img/logo.png" alt="" />
-									<!-- Heading -->
-									<h1>CakeFactory</h1>
-								</div>
-								<!-- Paragraph -->
-								<p>제작:개신(개발의 신)</p>
-								<ul>
-								<li>김지혜</li>
-								<li>노인욱</li>
-								<li>문희경</li>
-								<li>이고우나</li>
-								<li>한희원</li>
-								</ul>
-								<p>제작기간 : 2018-02-28~2018-03-31</p>
-								
-							</div> <!--/ Footer widget end -->
-						</div>
-						
-						<div class="clearfix visible-sm"></div>
-						
-						<div class="col-md-6 col-sm-12">
-							<!-- Footer widget -->
-							<div class="footer-widget">
-								<!-- Heading -->
-								<h4>제작 장소</h4>
-								<div class="contact-details">
-									<!-- Address / Icon -->
-									<i class="fa fa-map-marker br-red"></i> <span>KIC캠퍼스(강남점)</span>
-									<div class="clearfix"></div>
-									<!-- Contact Number / Icon -->
-									<i class="fa fa-phone br-green"></i> <span>학원전화번호</span>
-									<div class="clearfix"></div>
-									<!-- Email / Icon -->
-									<i class="fa fa-envelope-o br-lblue"></i> <span><a href="#">학원이메일</a></span>
-									<div class="clearfix"></div>
-								</div>
-								<!-- Social media icon -->
-								<div class="social">
-									<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-									<a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-									<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-									<a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a>
-								</div>
-							</div> <!--/ Footer widget end -->
-						</div>
-					</div>
-					<!-- Copyright -->
-					<div class="footer-copyright">
-						<!-- Paragraph -->
-						<p>&copy; Copyright 2014 <a href="#">Company Name</a></p>
-					</div>
-				</div>
-			</div>
+			<jsp:include page="footer.jsp"></jsp:include>
+			
+			
+			<!-- 페이지는 그대로인체 특정 이벤트를 발생시 전면에 페이지가 나오게 하는 형태 시작 -->
+			<a id="notice_check" data-toggle="modal" href="#shoppingcart1" class="btn btn-danger">Launch demo modal</a>
 			
 			<!-- Footer End -->
+			
+			<div class="modal fade" id="shoppingcart1" tabindex="-1" role="dialog" aria-hidden="false" style="display: blcok;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+					<h2>공지사항</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					</div>
+					<div class="modal-body">
+						<!-- Items table -->
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>제목</th>
+									<th>날짜</th>
+									<th>쓸거없다</th>
+								</tr>
+							</thead>
+							<tbody id="notice">
+								
+							</tbody>
+						</table>
+						
+						
+					</div>
+					<!-- <div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Continue Shopping</button>
+						<button type="button" class="btn btn-info">Checkout</button>
+					</div> -->
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		
+		<!-- 여기까지가 전면 부부부부부분 -->
+		
+		
+		
 			
 		</div><!-- / Wrapper End -->
 		
@@ -1179,7 +1040,18 @@
 							fullWidth:"on",
 							fullScreen:"off"
 						});
-				});
+					   
+					   //*****************************
+					   //여기서부터 공지사항 ajax 사용
+					 $('#notice_check').click(function(){
+					   $.ajax({url:"/TodayLunch/Admin/notice.jsp",success:function(data){
+						   $('#notice').html(data);
+					   } }
+					   )
+					 })
+					 
+					 
+				})
 		/* ******************************************** */
 		/*  JS for FlexSlider  */
 		/* ******************************************** */
@@ -1205,6 +1077,8 @@
 		jQuery(".gallery-img-link").prettyPhoto({
 		   overlay_gallery: false, social_tools: false
 		});
+		
+		
 		
 		</script>
 	</body>	

@@ -23,12 +23,13 @@ private DBConnectionMgr pool;
 	}// 생성자
 	
 	
-	public int getArticleCount() {
+	public int getArticleCount(String type) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int count = 0;
-		String sql = "select count(*) from person";
+		String sql = "select count(*) from "+type;
+		System.out.println(sql);
 		
 		try {
 			
@@ -129,7 +130,7 @@ public HashMap pageList(String pageNum,int count) {
 	}
 
 
-public ArrayList<MemberDTO> getPeople(int pageRow,int pageSize){
+public ArrayList<MemberDTO> getPeople(String type,int pageRow,int pageSize){
 	
 	Connection con = null;
 	PreparedStatement pstmt = null;
@@ -137,7 +138,7 @@ public ArrayList<MemberDTO> getPeople(int pageRow,int pageSize){
 	boolean check = false;
 	ArrayList<MemberDTO> list = new ArrayList(); // 생성자로 초기 공간을 지정
 	MemberDTO dto ;
-	String sql="select * from person limit "+pageRow+","+pageSize;
+	String sql="select * from "+type+" limit "+pageRow+","+pageSize;
 	
 	
 	try {
@@ -150,6 +151,40 @@ public ArrayList<MemberDTO> getPeople(int pageRow,int pageSize){
 			dto.setP_id(rs.getString("p_id"));
 			dto.setP_email(rs.getString("p_email"));
 			dto.setP_name(rs.getString("p_name"));
+			list.add(dto);
+		}
+		
+		
+	}catch(Exception e) {
+		System.out.println("getPeople 오류");
+	}
+	
+	
+	return list;
+}
+
+
+
+public ArrayList<MemberDTO> getRest(String type,int pageRow,int pageSize){
+	
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	boolean check = false;
+	ArrayList<MemberDTO> list = new ArrayList(); // 생성자로 초기 공간을 지정
+	MemberDTO dto ;
+	String sql="select * from "+type+" limit "+pageRow+","+pageSize;
+	
+	
+	try {
+		
+		con=pool.getConnection();
+		pstmt=con.prepareStatement(sql);
+		rs=pstmt.executeQuery();
+		while(rs.next()) {
+			dto=new MemberDTO();
+			dto.setP_id(rs.getString("r_id"));
+			dto.setP_email(rs.getString("r_email"));
 			list.add(dto);
 		}
 		
