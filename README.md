@@ -18,6 +18,7 @@ returnNoh가 맡은 부분은
 
 DB설계 - 설계에 참여하여 로그인정보 , 식권등 기능적인것에 설계를 같이함
 
+### 팀프로젝트 TodayLunch
 
 ###### 프론트엔드
 - [템플레이트번역 & 템플레이트 활용](WebContent/main.jsp)
@@ -33,13 +34,3 @@ DB설계 - 설계에 참여하여 로그인정보 , 식권등 기능적인것에
 ###### DB 설계
 - [Exerd](TodayLunch.exerd)
 
-
-###### EMS
-- [네이버 키워드광고](EMS/네이버_키워드광고)
-- [Go한게임](EMS/Go한게임)
-
-###### UIO
-- [팝업](UIO/팝업)
-
-###### JS Plugin
-- [zooTree](Plugin/zooTree)
