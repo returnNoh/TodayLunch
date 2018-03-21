@@ -958,9 +958,9 @@
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th>제목</th>
-									<th>날짜</th>
-									<th>쓸거없다</th>
+									<th>글번호</th>
+									<th>글내용</th>
+									<th>작성날짜</th>
 								</tr>
 							</thead>
 							<tbody id="notice">
@@ -1044,7 +1044,7 @@
 					   //*****************************
 					   //여기서부터 공지사항 ajax 사용
 					 $('#notice_check').click(function(){
-					   $.ajax({url:"/TodayLunch/Admin/notice.jsp",success:function(data){
+					   $.ajax({url:"Admin/notice.jsp",success:function(data){
 						   $('#notice').html(data);
 					   } }
 					   )

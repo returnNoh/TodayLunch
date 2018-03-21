@@ -197,7 +197,111 @@ public ArrayList<MemberDTO> getRest(String type,int pageRow,int pageSize){
 	return list;
 }
 
+public ArrayList<NoticeDTO> getNotice(){
+	
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	boolean check = false;
+	ArrayList<NoticeDTO> list = new ArrayList(); // 생성자로 초기 공간을 지정
+	NoticeDTO dto ;
+	String sql="select * from notice order by no_num desc";
+	
+	
+	try {
+		
+		con=pool.getConnection();
+		pstmt=con.prepareStatement(sql);
+		rs=pstmt.executeQuery();
+		while(rs.next()) {
+			dto=new NoticeDTO();
+			dto.setNo_num(rs.getInt("no_num"));
+			dto.setNo_time(rs.getDate("no_time"));
+			dto.setNo_content(rs.getString("no_content"));
+			list.add(dto);
+		}
+		
+		
+	}catch(Exception e) {
+		System.out.println("getPeople 오류");
+	}
+	
+	
+	return list;
+}
 
+public void writeNotice(String no_content) {
+	
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	
+	
+	String sql = "insert into notice select max(no_num)+1,now(),'"+no_content+"' from notice";
+	System.out.println(sql);
+	
+	try {
+		
+		con = pool.getConnection();
+		pstmt = con.prepareStatement(sql);
+		
+		pstmt.executeUpdate(sql);
+		
+		
+	}catch(Exception e) {
+		System.out.println("getArticleCount 실패"+e);
+	}finally {
+		pool.freeConnection(con,pstmt);
+	}
+	
+}
+
+public void updateNotice(String no_num,String no_content) {
+
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	
+	
+	String sql = "update notice set no_content='"+no_content+"' where no_num="+no_num;
+	System.out.println(sql);
+	
+	try {
+		
+		con = pool.getConnection();
+		pstmt = con.prepareStatement(sql);
+		
+		pstmt.executeUpdate(sql);
+		
+		
+	}catch(Exception e) {
+		System.out.println("getArticleCount 실패"+e);
+	}finally {
+		pool.freeConnection(con,pstmt);
+	}
+}
+
+public void deleteNotice(String no_num) {
+
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	
+	
+	String sql = "delete notice where="+no_num;
+	System.out.println(sql);
+	
+	try {
+		
+		con = pool.getConnection();
+		pstmt = con.prepareStatement(sql);
+		
+		pstmt.executeUpdate(sql);
+		
+		
+	}catch(Exception e) {
+		System.out.println("getArticleCount 실패"+e);
+	}finally {
+		pool.freeConnection(con,pstmt);
+	}
+}
 
 	
 }

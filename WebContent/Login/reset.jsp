@@ -10,15 +10,6 @@
 </head>
 <body>
 
-<input type="button" value="유저 보기" onclick="location.href='getPeople.lunch'">
-
-
-<input type="button" value="전체 식권 사용내역 보기" onclick="location.href='/TodayLunch/Admin/showSik.lunch'">
-
-<input type="button" value="공지사항 수정,삭제" onclick="location.href='/TodayLunch/Admin/noticeList.lunch'">
-<input type="button" value="전체 버튼?" onclick="location.href='/TodayLunch/Admin/showUser.lunch'">
-
-
 
 </body>
 </html>
