@@ -22,6 +22,9 @@
 ###### DB 설계
 - [Exerd](TodayLunch.exerd)
 
+##### 프레젠테이션
+- [Spring 설정 프레젠테이션](https://prezi.com/view/Z9vrQ8WIKaw4OIbVlLWX/)
+
 
 
 ### [개인프로젝트 BookRent](https://github.com/returnNoh/BooksRent)
