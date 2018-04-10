@@ -17,9 +17,9 @@
 							<div class="footer-widget">
 								<!-- Logo area -->
 								<div class="logo">
-									<img class="img-responsive" src="img/logo.png" alt="" />
+									<img class="img-responsive" src="/TodayLunch/img/logo.png" alt="" />
 									<!-- Heading -->
-									<h1>CakeFactory</h1>
+									<h1>오늘의 점심</h1>
 								</div>
 								<!-- Paragraph -->
 								<p>제작:개신(개발의 신)</p>
@@ -44,13 +44,13 @@
 								<h4>제작 장소</h4>
 								<div class="contact-details">
 									<!-- Address / Icon -->
-									<i class="fa fa-map-marker br-red"></i> <span>KIC캠퍼스(강남점)</span>
+									<i class="fa fa-map-marker br-red"></i> <span>서울특별시 강남구 테헤란로1길 10 세경빌딩 3층<br>KIC캠퍼스</span>
 									<div class="clearfix"></div>
 									<!-- Contact Number / Icon -->
-									<i class="fa fa-phone br-green"></i> <span>학원전화번호</span>
+									<i class="fa fa-phone br-green"></i> <span>02-538-3644</span>
 									<div class="clearfix"></div>
 									<!-- Email / Icon -->
-									<i class="fa fa-envelope-o br-lblue"></i> <span><a href="#">학원이메일</a></span>
+									<i class="fa fa-bookmark-o br-lblue"></i><a href="http://www.kiccampus.co.kr"><span>http://www.kiccampus.co.kr</span></a>
 									<div class="clearfix"></div>
 								</div>
 								<!-- Social media icon -->
@@ -66,7 +66,7 @@
 					<!-- Copyright -->
 					<div class="footer-copyright">
 						<!-- Paragraph -->
-						<p>&copy; Copyright 2014 <a href="#">Company Name</a></p>
+						<p>&copy; Copyright 2018 <a>개신</a></p>
 					</div>
 				</div>
 			</div>

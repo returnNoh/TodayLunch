@@ -13,12 +13,7 @@ public class NoticeListAction implements CommandAction {
 		
 		AdminDAO dao = new AdminDAO();
 		
-		if(request.getParameter("no_content")!=null) { //액션을 따로 안만들고 글 작성 후 리스트로 돌아오기 위해 이렇게 써봄
-			dao.writeNotice(request.getParameter("no_content"));
-		}
-		if(request.getParameter("no_num")!=null) {//액션을 따로 안만들고 글삭제 후 바로 리스트로 돌아오기 위한 구문
-			dao.deleteNotice(request.getParameter("no_num"));
-		}
+		
 		
 		
 		

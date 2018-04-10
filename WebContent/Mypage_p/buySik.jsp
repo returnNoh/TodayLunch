@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="utf-8">
 		<!-- Title here -->
-		<title>Online Shopping Single Item - CakeFactory</title>
+		<title>식권 구매</title>
 		<!-- Description, Keywords and Author -->
 		<meta name="description" content="Your description">
 		<meta name="keywords" content="Your,Keywords">
@@ -33,11 +33,7 @@
 	</head>
 	
 	<body>
-		
-			
-		<!-- Shopping cart Modal -->
-		
-		
+	
 		<!-- Page Wrapper -->
 		<div class="wrapper">
 		
@@ -54,11 +50,10 @@
 					<!-- Image -->
 					<img class="img-responsive" src="../img/crown-white.png" alt="" />
 					<!-- Heading -->
-					<h2 class="white">Order Now</h2>
+					<h2 class="white">BUY TICKET</h2>
 					<ol class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="items.html">Shopping</a></li>
-						<li class="active">Order Now</li>
+						<li><a href="index.jsp">Home</a></li>
+						<li class="active">buy Ticket</li>
 					</ol>
 					<div class="clearfix"></div>
 				</div>
@@ -102,6 +97,12 @@
 																	<option>2</option>
 																	<option>3</option>
 																	<option>4</option>
+																	<option>5</option>
+																	<option>6</option>
+																	<option>7</option>
+																	<option>8</option>
+																	<option>9</option>
+																	<option>10</option>
 																</select>
 															</div></td>
 															<tr>
@@ -113,7 +114,7 @@
 															<td>Payment Mode</td>
 															<td><div class="form-group">
 																<select class="form-control input-sm">
-																	<option>Cash on delivery</option>
+																	<option>Cash on Restaurant</option>
 																	<option>Credit Card</option>
 																	<option>Debit Card</option>
 																</select>

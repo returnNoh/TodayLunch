@@ -8,7 +8,6 @@ import DBConnect.DBConnectionMgr;
 import beans.*;
 
 
-
 public class MemberDAO {
 
 private DBConnectionMgr pool;
@@ -23,7 +22,7 @@ private DBConnectionMgr pool;
 	}// 생성자
 	
 	//로그인 
-	public boolean login(String P_id,String P_passwd) {
+	public boolean login(String p_id,String p_passwd) {
 		//DB
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -34,23 +33,22 @@ private DBConnectionMgr pool;
 		try {
 			con=pool.getConnection();
 			System.out.println("con=>"+con);
-			sql="select P_id,P_passwd from person where P_id=? and P_passwd=?";
+			sql="select id,passwd from login where id=? and passwd=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1,P_id);//웹상에서 입력한 id값
-			pstmt.setString(2,P_passwd);
+			pstmt.setString(1,p_id);//웹상에서 입력한 id값
+			pstmt.setString(2,p_passwd);
 			rs=pstmt.executeQuery();
 			check=rs.next();// 찾았으면 check=true or false
 		}catch(Exception e) {
-			System.out.println("today lunch login() 메서드 실행오류=>"+e);
+			System.out.println("today lunch login DAO() 메서드 실행오류=>"+e);
 		}finally {//메모리해제
 			pool.freeConnection(con, pstmt, rs);
 		}
 		return check;
 	}
-	// 회원가입
-	//checkID(개인회원 중복아이디체크)
-	public boolean checkID(String P_id) { 
-		//DB연결하는 코딩
+	
+	//checkId
+	public boolean checkId(String p_id) { 
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -59,47 +57,21 @@ private DBConnectionMgr pool;
 		
 		try {
 			con=pool.getConnection();
-			sql="select  P_id from person where P_id=?";
+			sql="select  p_id from person where p_id=?";
 			pstmt=con.prepareStatement(sql);  
-			pstmt.setString(1, P_id);
+			pstmt.setString(1, p_id);
 			rs=pstmt.executeQuery();
-			check=rs.next();  //데이터 있으면 true,없으면 false
+			check=rs.next(); 
 		}catch(Exception  e) {
-			System.out.println("today lunch checkId() 실행 중 에러유발=>"+e);
+			System.out.println("today lunch checkId DAO() 실행 중 에러유발=>"+e);
 		}finally {
-			pool.freeConnection(con, pstmt, rs); //DB연결해제
+			pool.freeConnection(con, pstmt, rs);
 		}
 		return check;
-	}
-	
-	//식당회원
-	//checkID2(식당회원 중복아이디체크)
-		public boolean checkID2(String R_id) { 
-			//DB연결하는 코딩
-			Connection con=null;
-			PreparedStatement pstmt=null;
-			ResultSet rs=null;
-			boolean check=false;
-			String sql="";
-			
-			try {
-				con=pool.getConnection();
-				sql="select  R_id from rest where R_id=?";
-				pstmt=con.prepareStatement(sql);  
-				pstmt.setString(1, R_id);
-				rs=pstmt.executeQuery();
-				check=rs.next();  //데이터 있으면 true,없으면 false
-			}catch(Exception  e) {
-				System.out.println("today lunch checkId() 실행 중 에러유발=>"+e);
-			}finally {
-				pool.freeConnection(con, pstmt, rs); //DB연결해제
-			}
-			return check;
-		}	
-	
+	}	
 	
 	//회원수정 정보 출력
-	public MemberDTO getMember(String P_id) {
+	public MemberDTO getMember(String p_id) {
 		
 		Connection con=null;
 		PreparedStatement pstmt=null;//
@@ -109,21 +81,22 @@ private DBConnectionMgr pool;
 		
 		try {
 			con=pool.getConnection();
-			sql="select * from person where P_id=?";
+			sql="select * from person where p_id=?";
 			pstmt=con.prepareStatement(sql);  
-			pstmt.setString(1,P_id);
+			pstmt.setString(1,p_id);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				mem=new MemberDTO();
-				mem.setP_id(rs.getString("P_id"));
-				mem.setP_passwd(rs.getString("P_passwd"));
-				mem.setP_email(rs.getString("P_email"));
-				mem.setP_name(rs.getString("P_name"));
-				mem.setP_siknum(rs.getString("P_siknum"));
+				mem.setP_id(rs.getString("p_id"));
+				mem.setP_passwd(rs.getString("p_passwd"));
+				mem.setP_email(rs.getString("p_email"));
+				mem.setP_name(rs.getString("p_name"));
+				mem.setP_check(rs.getBoolean("p_check"));
+				mem.setP_siknum(rs.getString("p_siknum"));
 				
 			}
 		}catch(Exception  e) {
-			System.out.println("today lunch의 getMember() 실행 중 에러유발=>"+e);
+			System.out.println("today lunch의 getMember DAO() 실행 중 에러유발=>"+e);
 		}finally {
 			pool.freeConnection(con, pstmt, rs);
 		}
@@ -144,8 +117,8 @@ private DBConnectionMgr pool;
 			//트랜잭션처리 시작구문
 			con.setAutoCommit(false);
 			
-			sql="update person set P_passwd=?, P_name=?, P_email=?,"
-					+ "P_siknum=?  where P_id=?";
+			sql="update person set p_passwd=?, p_name=?, p_email=?,"
+					+ "p_siknum=?  where p_id=?";
 			
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, mem.getP_passwd());
@@ -161,101 +134,59 @@ private DBConnectionMgr pool;
 				check=true; //수정성공
 			}
 		}catch(Exception e) {
-			System.out.println("memberUpdate() 실행 에러유발=>"+e);
+			System.out.println("personUpdate  DAO() 실행 에러유발=>"+e);
 		}finally {
 			pool.freeConnection(con, pstmt);
 		}
 		return check; //true or false
 	}
-	
-	//4)개인 회원가입 시켜주는 메서드?
-		//insert into member values(?,?,?,?,?,?,?,?)->executeUpdate
-		//DTO->1.테이블의 필드별로 저장,출력 2.메서드의 매개변수와 반환형으로 사용
-		public  boolean   memberInsert(MemberDTO mem) {
-			
-			Connection con=null;
-			PreparedStatement pstmt=null;
-			//ResultSet rs=null ->insert이기때문
-			boolean check=false;//회원가입 성공유무
-			String sql="";//sql구문 저장
-			
-			try {
-				con=pool.getConnection();
-				//트랜잭션처리 시작구문
-				con.setAutoCommit(false);
-				//-----입력을 받을때는 DTO->각각의 필드에 값을 저장->Getter Method
-				System.out.println("memberInsert mem.getP_id:"+mem.getP_id());
-				if(mem.getP_id()!=null) {
-				sql="insert into person values(?,?,?,?,0,?)";
-				pstmt=con.prepareStatement(sql);
-				pstmt.setString(1, mem.getP_id());
-				pstmt.setString(2, mem.getP_passwd());
-				pstmt.setString(3, mem.getP_email());
-				pstmt.setString(4, mem.getP_name());
-				pstmt.setString(5, mem.getP_siknum());
-				
-				System.out.println("mem.getP_id()! 오류");
-				}
-				
-				int insert=pstmt.executeUpdate();//1->성공, 0->실패->메모리상 저장
-				//메모리상에 저장된 값이=>실제 테이블에 저장(동기화)
-				con.commit();
-				System.out.println("회원가입 성공유무(insert)=>"+insert);
-				if(insert > 0) {
-					check=true;
-				}
-			}catch(Exception e) {
-				System.out.println("lunch(DAO).memberInsert() 실행 에러유발=>"+e);
-			}finally {
-				pool.freeConnection(con, pstmt);
-			}
-			return check;
-		}
-	
-	
-	//4)식당 회원가입 시켜주는 메서드?
-	//insert into member values(?,?,?,?,?,?,?,?)->executeUpdate
-	//DTO->1.테이블의 필드별로 저장,출력 2.메서드의 매개변수와 반환형으로 사용
-	public  boolean   memberInsert2(MemberDTO mem) {
-		
+
+//회원 탈퇴
+
+	public int deletePerson(String p_id, String p_passwd) {
+		//1.DB연결
 		Connection con=null;
 		PreparedStatement pstmt=null;
-		//ResultSet rs=null ->insert이기때문
-		boolean check=false;//회원가입 성공유무
-		String sql="";//sql구문 저장
+		ResultSet rs=null;
+		int p=-1;//암호를 체크하기위한 변수(성공->1, 실패->0)
+		String dbpasswd="";//id값에 해당하는 DB의 암호값저장
+		String sql="";
 		
+		//2.메서드 목적에 맞는 SQL구문
 		try {
 			con=pool.getConnection();
-			//트랜잭션처리 시작구문
 			con.setAutoCommit(false);
-			//-----입력을 받을때는 DTO->각각의 필드에 값을 저장->Getter Method
-			System.out.println("memberInsert2 mem.getR_id:"+mem.getR_id());
-			if(mem.getR_id()!=null) {
-			sql="insert into rest values(?,?,?,?)";
+			sql="select p_passwd from person where p_id=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, mem.getR_id());
-			pstmt.setString(2, mem.getR_passwd());
-			pstmt.setString(3, mem.getR_email());
-			pstmt.setString(4, mem.getR_phone());
-			
-			System.out.println("mem.getR_id()! 오류");
-			}
-
-			int insert=pstmt.executeUpdate();//1->성공, 0->실패->메모리상 저장
-			//메모리상에 저장된 값이=>실제 테이블에 저장(동기화)
-			con.commit();
-			System.out.println("회원가입 성공유무(insert)=>"+insert);
-			if(insert > 0) {
-				check=true;
-			}
+			pstmt.setString(1, p_id);//웹상에서 입력한 id값
+			rs=pstmt.executeQuery();
+			//id값에 대한 DB에 저장된 암호를 찾았다면
+			if(rs.next()) {
+				dbpasswd=rs.getString("p_passwd");
+				System.out.println("dbpasswd=>"+dbpasswd);
+				//db상의 암호==웹상에 입력한 암호
+				if(dbpasswd.equals(p_passwd)) {
+				   	pstmt=con.prepareStatement("delete from person where p_id=?");
+				   	pstmt.setString(1, p_id);
+				   	int delete=pstmt.executeUpdate();
+				   	pstmt=con.prepareStatement("delete from login where id=?");
+				   	pstmt.setString(1, p_id);
+				   	int delete2=pstmt.executeUpdate();
+				   	con.commit();
+				   	System.out.println("MemberDAO의deleteperson()2 성공유무=>"+delete2);
+				   	p=1;
+				}else {
+					p=0;
+					System.out.println("MemberDAO의 deletePerson에 암호 오류");
+				}
+			}//else { x=-1 } 데이터를 못 찾은 경우
 		}catch(Exception e) {
-			System.out.println("lunch(DAO).memberInsert2() 실행 에러유발=>"+e);
-		}finally {
-			pool.freeConnection(con, pstmt);
+			System.out.println("MemberDAO deletePerson() 메서드 실행오류=>"+e);
+		}finally {//메모리해제
+			pool.freeConnection(con, pstmt, rs);
 		}
-		return check;
+		return p;
 	}
-	
 }
 
 

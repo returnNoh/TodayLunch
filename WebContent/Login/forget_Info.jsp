@@ -75,14 +75,13 @@
 		<div id="myTabContent" class="tab-content">
 			<div class="tab-pane fade active in" id="ID">
 				<form method="post" action="forget_Info.lunch">
-
 					찾으시려는 아이디의 이메일정보를 적어주세요.<br> <input type="email" name="email"
 						placeholder="이메일을 적어주세요"> <input type="submit" value="찾기">
 
 				</form>
-				<c:if test="${not empty requestScope.result}">
+				<%-- <c:if test="${not empty requestScope.result}">
 고객님의 아이디는<h3>${result}</h3>
-</c:if>
+				</c:if> --%>
 			</div>
 
 			<div class="tab-pane fade" id="PASS">
@@ -96,16 +95,16 @@
 
 				</form>
 				
-				<c:if test="${not empty requestScope.result}">
-<h3>${result}</h3>
-</c:if>
+				
 				
 
 			</div>
 
 		</div>
 	</div>
-
+<c:if test="${not empty requestScope.result}">
+고객님의 아이디는<h3>${result}</h3>
+				</c:if>
 
 
 	<!-- ID찾기 부분 -->

@@ -93,7 +93,7 @@
 										
 											
 											
-											<li><a href="/TodayLunch/Admin/mypage.lunch"><img src="/TodayLunch/img/nav-menu/nav3.jpg" class="img-responsive" alt="">
+											<li><a href="/TodayLunch/Admin/myPage.lunch"><img src="/TodayLunch/img/nav-menu/nav3.jpg" class="img-responsive" alt="">
 											 AdminPage</a></li>
 											
 											

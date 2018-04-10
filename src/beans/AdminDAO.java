@@ -190,7 +190,7 @@ public ArrayList<MemberDTO> getRest(String type,int pageRow,int pageSize){
 		
 		
 	}catch(Exception e) {
-		System.out.println("getPeople 오류");
+		System.out.println("getRest 오류");
 	}
 	
 	
@@ -223,7 +223,7 @@ public ArrayList<NoticeDTO> getNotice(){
 		
 		
 	}catch(Exception e) {
-		System.out.println("getPeople 오류");
+		System.out.println("getNotice 오류");
 	}
 	
 	
@@ -248,7 +248,7 @@ public void writeNotice(String no_content) {
 		
 		
 	}catch(Exception e) {
-		System.out.println("getArticleCount 실패"+e);
+		System.out.println("writeNotice 실패"+e);
 	}finally {
 		pool.freeConnection(con,pstmt);
 	}
@@ -273,7 +273,7 @@ public void updateNotice(String no_num,String no_content) {
 		
 		
 	}catch(Exception e) {
-		System.out.println("getArticleCount 실패"+e);
+		System.out.println("updateNotice 실패"+e);
 	}finally {
 		pool.freeConnection(con,pstmt);
 	}
@@ -285,7 +285,7 @@ public void deleteNotice(String no_num) {
 	PreparedStatement pstmt = null;
 	
 	
-	String sql = "delete notice where="+no_num;
+	String sql = "delete from notice where no_num="+no_num;
 	System.out.println(sql);
 	
 	try {
@@ -297,7 +297,7 @@ public void deleteNotice(String no_num) {
 		
 		
 	}catch(Exception e) {
-		System.out.println("getArticleCount 실패"+e);
+		System.out.println("DeleteNotice 실패"+e);
 	}finally {
 		pool.freeConnection(con,pstmt);
 	}

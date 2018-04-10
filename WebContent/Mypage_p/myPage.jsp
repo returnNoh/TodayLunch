@@ -4,7 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -188,6 +188,7 @@
 				<h2 class="white">ME ! ${p_id }</h2>
 				<ol class="breadcrumb">
 					<li><a href="/TodayLunch/main.lunch">Home</a></li>
+					<li class="active">My Page</li>
 				</ol>
 				<div class="clearfix"></div>
 			</div>
@@ -208,7 +209,7 @@
 					<div class="shopping-content">
 						<div class="row">
 
-							<div class="col-md-3 col-sm-4 col-sm-offset-2">
+							<div class="col-md-offset-3 col-md-3 col-sm-4 col-sm-offset-2">
 								<!-- Shopping items -->
 								<div class="shopping-item">
 									<!-- Image -->
@@ -247,31 +248,8 @@
 									</div>
 								</div>
 							</div>
+							<!-- Showcase End -->				
 
-
-							<!-- Showcase End -->
-
-							<!--식권사용-->
-							<div class="col-md-3 col-sm-4">
-								<!-- Shopping items -->
-								<div class="shopping-item">
-									<!-- Image -->
-									<a href="#"><img class="img-responsive"
-										src="../img/shopping/shop1.jpg" alt="" /></a>
-									<!-- Shopping item name / Heading -->
-									<h4 class="center">
-										<a href="#">식권 사용</a>
-									</h4>
-									<!-- <span class="item-price pull-right"></span> -->
-									<div class="clearfix"></div>
-
-									<!-- Buy now button -->
-									<div class="visible-xs">
-										<a class="btn btn-danger btn-sm" href="#">USE NOW</a>
-									</div>
-								</div>
-							</div>
-							
 							<!--회원수정-->
 							<div class="col-md-offset-3 col-md-3  col-sm-4">
 								<!-- Shopping items -->
@@ -418,10 +396,7 @@
 			<script src="../js/html5shiv.js"></script>
 			<!-- Custom JS -->
 			<script src="../js/custom.js"></script>
-			<!-- JS code for this page -->
-			<script>
-		
-		</script>
-	
+
+
 </body>
 </html>

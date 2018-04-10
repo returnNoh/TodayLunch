@@ -1,8 +1,10 @@
 package beans;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.TreeMap;
 
 import DBConnect.DBConnectionMgr;
 
@@ -42,8 +44,8 @@ public class SikDAO {
 
 				if (rs.getInt("s_num") != 0) { // 식권이 있을경우
 					
-					sikUpdate(p_id, p_siknum,r_name); // 리턴값이 있긴한데 오류날부분이 아닐것같아서 대충함
-					check = "남은 식권은 " + (rs.getInt("s_num") - 1) + "장 입니다";
+					sikUpdate(p_id, p_siknum,r_name);
+					check = "남으신 식권은 " + (rs.getInt("s_num") - 1) + "장 입니다";
 
 				} else { // 식권이 없을경우
 					check = "식권이 부족합니다.";
@@ -73,7 +75,6 @@ public class SikDAO {
 			// 식권사용정보 등록
 			System.out.println("식권 사용정보 추가중");
 			pstmt2=con2.prepareStatement("insert into u_sik values(?,?,now())");
-			//con2.setautocommit()
 			pstmt2.setString(1,p_id);
 			pstmt2.setString(2, r_name);
 			pstmt2.executeUpdate();
@@ -92,6 +93,40 @@ public class SikDAO {
 		}
 		return check;
 		
+	}
+	
+	//u_sik table--------------------------------------------------
+	
+	
+	public TreeMap<Date, Integer> getRestU_SikList(String r_name){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		TreeMap<Date, Integer> u_sikList = null;
+		String sql = "";
+		
+		try {
+			con = pool.getConnection();
+			sql = "select (DATE_FORMAT(u_time, '%Y-%m-%d'))date, count(*) from u_sik"
+			+" where r_name=? GROUP BY DATE_FORMAT(u_time, '%Y-%m-%d') ORDER BY date desc";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, r_name);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) { 
+				u_sikList=new TreeMap<Date, Integer>();
+				do{
+					u_sikList.put(rs.getDate(1), rs.getInt(2));
+					//System.out.println("getRestU_SikList u_sikList:"+rs.getDate(1)+", "+rs.getInt(2));
+				}while(rs.next());
+			} 
+		} catch (Exception e) {
+			System.out.println("getRestU_SikList error:" + e);
+		}finally {
+			pool.freeConnection(con, pstmt,rs);
+		}
+
+		return u_sikList;
 	}
 
 }

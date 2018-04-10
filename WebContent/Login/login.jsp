@@ -99,8 +99,7 @@
 									</div>
 
 									<div class="text-right p-t-8 p-b-31">
-<!-- 									<a id="notice_check" data-toggle="modal" href="#shoppingcart1" class="btn btn-danger">Forgot password?</a>
- -->										<a href="#" onclick="forget()"> Forgot password? </a>
+										<a href="#" onclick="forget()"> Forgot password? </a>
 									</div>
 
 									<div class="container-login100-form-btn">
@@ -118,40 +117,6 @@
 		</div>
 		<!--footer-->
 		<jsp:include page="../footer.jsp"></jsp:include>
-		
-		<!-- modal start -->
-		
-		<!-- <div class="modal fade" id="shoppingcart1" tabindex="-1" role="dialog" aria-hidden="false" style="display: blcok;">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-					<h2>공지사항</h2>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					</div>
-					<div class="modal-body">
-						Items table
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>제목</th>
-									<th>날짜</th>
-									<th>쓸거없다</th>
-								</tr>
-							</thead>
-							<tbody id="notice">
-								
-							</tbody>
-						</table>
-						
-						
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Continue Shopping</button>
-						<button type="button" class="btn btn-info">Checkout</button>
-					</div>
-				</div>/.modal-content
-			</div>/.modal-dialog
-		</div> -->
 
 	</div>
 	<!-- Javascript files -->
@@ -182,15 +147,12 @@
 	<script src="../vendor_l/countdowntime/countdowntime.js"></script>
 
 	<script src="../js_l/main.js"></script>
+<script type="text/javascript">
+function forget(){
 	
-	<script>
-	function forget(){
-		
-		window.open("forget_Info.jsp", "post", "left=400,top=220, width=500, height=300",
-				"toobar=no,menubar=no,status=yes,scrollbars=no");
-		}
-	
+	window.open("forget_Info.jsp", "post", "left=400,top=220, width=500, height=300",
+			"toobar=no,menubar=no,status=yes,scrollbars=no");
+	}
 	</script>
-
 </body>
 </html>

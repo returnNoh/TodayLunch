@@ -11,7 +11,7 @@ public class LogOutAction implements CommandAction {
 		
 		request.getSession().invalidate();
 		
-		return "/main.jsp";
+		return "/index.jsp";
 	}
 
 }
