@@ -14,26 +14,26 @@
 <body>
   	<div class="container">
   	<c:if test="${check==true}">
-  		<table class="okay">
-  			<tr>
+  		<!-- <table class="okay">
+  			<tr> -->
   			<%-- <td>정상적으로 수정 되었습니다.</td>
   			<c:redirect url="/main.lunch"/> --%>
   			<script>
   				alert("정상적으로 수정 되었습니다.")
   				location.href="/TodayLunch/main.lunch"
   			</script>
-  			</tr>
-  		</table>
+  			<!-- </tr>
+  		</table> -->
    </c:if>
    
    <c:if test="${check != true}">
-  		<table class="error">
-  		 <tr>
+  		<!-- <table class="error">
+  		 <tr> -->
   			<script>
   			alert("다시 확인 해주세요")
   			history.back()</script>
-  		 </tr>
-  		</table>
+  		<!--  </tr>
+  		</table> -->
   		</c:if>
   	</div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -1,132 +1,25 @@
 package beans;
 
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
-import DBConnect.DBConnectionMgr;
+import org.springframework.dao.DataAccessException;
 
-public class SikDAO {
-
-	private DBConnectionMgr pool;
-
-	public SikDAO() {
-		try {
-			pool = DBConnectionMgr.getInstance();
-			System.out.println("pool");
-
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-
-	public String usesik(String p_id, String p_siknum, String r_name) {
-
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String check = "";
-		String sql = "select s_num from sik where p_id=? and p_siknum=?";
-
-		try {
-
-			con = pool.getConnection();
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, p_id);
-			pstmt.setString(2, p_siknum);
-			
-			rs = pstmt.executeQuery();
-			
-			System.out.println("아이디 인증번호 조회중");
-			if (rs.next()) { // 아이디와 비번이 맞을경우
-
-				if (rs.getInt("s_num") != 0) { // 식권이 있을경우
-					
-					sikUpdate(p_id, p_siknum,r_name);
-					check = "남으신 식권은 " + (rs.getInt("s_num") - 1) + "장 입니다";
-
-				} else { // 식권이 없을경우
-					check = "식권이 부족합니다.";
-				}
-
-			} else {// 아이디와 비번이 틀릴경우
-				check = "아이디와 인증번호를 확인해주세요";
-			}
-
-		} catch (Exception e) {
-			System.out.println("사용오류" + e);
-		}finally {
-			pool.freeConnection(con, pstmt,rs);
-		}
-
-		return check;
-	}
+public interface SikDAO {
+	//SikkwonDAO에 있던 메소드들
+	/*public List<SikkwonCommand> u_sik(String p_id) throws DataAccessException;
+	public int getSnum(String p_id) throws DataAccessException;
+	public boolean updateSik(SikkwonCommand sik) throws DataAccessException;
+	public TreeMap<Date, Integer> getPersonU_SikList(String p_id) throws DataAccessException;
+	*///SikDAO에 있던 메소드들
+	public String usesik(SikCommand sik) throws DataAccessException;
+	public int sikUpdate(SikCommand sik) throws DataAccessException;
+	//public int u_sikInsert(SikkwonCommand sik) throws DataAccessException;
+	public TreeMap<Date, Integer> getRestU_SikList(Map<String, Object> u_sikMap) throws DataAccessException;
+	public int getRestU_SikCount(String r_name) throws DataAccessException;
+	public HashMap<String, Integer> pageList(String pageNum,int count);
 	
-	public int sikUpdate(String p_id,String p_siknum,String r_name) {//DB의 식권 사용은 이 메소드로 사용
-		Connection con2 = null;
-		PreparedStatement pstmt2 = null;
-		int check = 0;
-		String sql = "update sik set s_num=(s_num-1) where p_id=? and p_siknum=?";
-		
-		try {
-			con2=pool.getConnection();
-			// 식권사용정보 등록
-			System.out.println("식권 사용정보 추가중");
-			pstmt2=con2.prepareStatement("insert into u_sik values(?,?,now())");
-			pstmt2.setString(1,p_id);
-			pstmt2.setString(2, r_name);
-			pstmt2.executeUpdate();
-			// 식권차감
-			System.out.println("식권차감중");
-			pstmt2=con2.prepareStatement(sql);
-			pstmt2.setString(1, p_id);
-			pstmt2.setString(2, p_siknum);
-			pstmt2.executeUpdate();
-			
-			
-		}	catch(Exception e) {
-			System.out.println("식권 사용에 심각한 오류가 나왔습니다."+e);
-		}finally {
-			pool.freeConnection(con2, pstmt2);
-		}
-		return check;
-		
-	}
-	
-	//u_sik table--------------------------------------------------
-	
-	
-	public TreeMap<Date, Integer> getRestU_SikList(String r_name){
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		TreeMap<Date, Integer> u_sikList = null;
-		String sql = "";
-		
-		try {
-			con = pool.getConnection();
-			sql = "select (DATE_FORMAT(u_time, '%Y-%m-%d'))date, count(*) from u_sik"
-			+" where r_name=? GROUP BY DATE_FORMAT(u_time, '%Y-%m-%d') ORDER BY date desc";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, r_name);
-			rs = pstmt.executeQuery();
-			
-			if (rs.next()) { 
-				u_sikList=new TreeMap<Date, Integer>();
-				do{
-					u_sikList.put(rs.getDate(1), rs.getInt(2));
-					//System.out.println("getRestU_SikList u_sikList:"+rs.getDate(1)+", "+rs.getInt(2));
-				}while(rs.next());
-			} 
-		} catch (Exception e) {
-			System.out.println("getRestU_SikList error:" + e);
-		}finally {
-			pool.freeConnection(con, pstmt,rs);
-		}
-
-		return u_sikList;
-	}
-
 }

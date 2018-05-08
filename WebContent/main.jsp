@@ -3,15 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
-<% response.setHeader("Cache-Control","no-cache"); //HTTP 1.1 
+<%-- <% response.setHeader("Cache-Control","no-cache"); //HTTP 1.1 
  response.setHeader("Pragma","no-cache"); //HTTP 1.0 
  response.setDateHeader ("Expires", 0); //prevents caching at the proxy server  
-%>
+%> --%>
 <html>
 <head>
 <meta charset="utf-8">
 <!-- Title here -->
-<title>CakeFactory</title>
+<title>TodayLunch</title>
 <!-- Description, Keywords and Author -->
 <meta name="description" content="Your description">
 <meta name="keywords" content="Your,Keywords">
@@ -40,10 +40,17 @@
 <link rel="shortcut icon" href="#">
 <style>
 .flex-container {
-  display: flex;
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
 
+.dishes .img-frame {
+	cursor: Auto;
+}
+
+.menu-head {
+	cursor: pointer;
+}
 </style>
 </head>
 
@@ -53,10 +60,10 @@
 
 
 	<!-- Page Wrapper -->
-	<div class="wrapper">
+	<div class="wrapper" style="background-color: #F2EFE9;">
 
 		<!-- Header Start -->
-		<jsp:include page="top.jsp"></jsp:include>
+		<jsp:include page="top.jsp" />
 
 
 		<!-- Header End -->
@@ -72,35 +79,31 @@
 					<!-- SLIDE  -->
 					<li data-transition="fade" data-slotamount="7"
 						data-masterspeed="1500">
-						<!-- MAIN IMAGE --> <img src="img/slider/slide2.jpg" alt=""
-						data-bgfit="cover" data-bgposition="center bottom"
+						<!-- MAIN IMAGE -첫번째 이미지 --> <img src="img/slider/slide8.jpg"
+						alt="" data-bgfit="cover" data-bgposition="center bottom"
 						data-bgrepeat="no-repeat"> <!-- LAYERS --> <!-- LAYER NR. 1 -->
-						<div class="tp-caption lfl largeblackbg br-red" data-x="20"
-							data-y="100" data-speed="1500" data-start="1200"
-							data-easing="Power4.easeOut" data-endspeed="500"
-							data-endeasing="Power4.easeIn" style="z-index: 3">We Make
-							Delicious...</div> <!-- LAYER NR. 2.0 -->
-						<div class="tp-caption lfl medium_bg_darkblue br-green"
+						<!--br-red-->
+						<div class="tp-caption" data-x="left" data-y="40"
+							data-speed="2000" data-start="1200" data-easing="Power4.easeOut"
+							data-endspeed="500" data-endeasing="Power4.easeIn"
+							style="z-index: 3; background-color: #dea79d"></div> <!-- LAYER NR. 2.0 -->
+						<!-- <div class="tp-caption lfl medium_bg_darkblue br-green"
 							data-x="20" data-y="200" data-speed="1500" data-start="1800"
 							data-easing="Power4.easeOut" data-endspeed="300"
-							data-endeasing="Power4.easeIn" data-captionhidden="off">Consectetur
-							Adipisicing</div> <!-- LAYER NR. 2.1 -->
+							data-endeasing="Power4.easeIn" data-captionhidden="off">로그인 후 식권 구매 페이지에서 구매</div> LAYER NR. 2.1
 						<div class="tp-caption lfl medium_bg_darkblue br-lblue"
 							data-x="20" data-y="250" data-speed="1500" data-start="2100"
 							data-easing="Power4.easeOut" data-endspeed="500"
-							data-endeasing="Power4.easeIn" style="z-index: 3">Sed do
-							Seusmod</div> <!-- LAYER NR. 2.2 -->
+							data-endeasing="Power4.easeIn" style="z-index: 3">식당에서 설정한 식권 인증번호 입력</div> LAYER NR. 2.2
 						<div class="tp-caption lfl medium_bg_darkblue br-purple"
 							data-x="20" data-y="300" data-speed="1500" data-start="2400"
 							data-easing="Power4.easeOut" data-endspeed="500"
-							data-endeasing="Power4.easeIn" style="z-index: 3">Incididunt
-							ut Labore</div> <!-- LAYER NR. 2.3 -->
+							data-endeasing="Power4.easeIn" style="z-index: 3">확인 버튼 누르면 사용 가능</div> LAYER NR. 2.3
 						<div class="tp-caption lfl medium_bg_darkblue br-orange"
 							data-x="20" data-y="350" data-speed="1500" data-start="2700"
 							data-easing="Power4.easeOut" data-endspeed="500"
-							data-endeasing="Power4.easeIn" style="z-index: 3">Excepteur
-							Sint</div> <!-- LAYER NR. 3.0 -->
-						<div class="tp-caption customin customout" data-x="right"
+							data-endeasing="Power4.easeIn" style="z-index: 3">사용 내역에서 남은 개수를 확인해보세요!</div>  -->
+						<!-- LAYER NR. 3.0 --> <!-- <div class="tp-caption customin customout" data-x="right"
 							data-hoffset="-50" data-y="100"
 							data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
 							data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
@@ -108,8 +111,8 @@
 							data-endspeed="300" style="z-index: 5">
 							<img class="slide-img img-responsive" src="img/slider/s21.png"
 								alt="" />
-						</div> <!-- LAYER NR. 3.1 -->
-						<div class="tp-caption customin customout" data-x="right"
+						</div>  --> <!-- LAYER NR. 3.1 --> <!-- 
+							<div class="tp-caption customin customout" data-x="right"
 							data-hoffset="-120" data-y="130"
 							data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
 							data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
@@ -117,7 +120,7 @@
 							data-endspeed="300" style="z-index: 6">
 							<img class="slide-img img-responsive" src="img/slider/s22.png"
 								alt="" />
-						</div> <!-- LAYER NR. 3.2 -->
+						</div> LAYER NR. 3.2
 						<div class="tp-caption customin customout" data-x="right"
 							data-hoffset="-10" data-y="160"
 							data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
@@ -126,8 +129,7 @@
 							data-endspeed="300" style="z-index: 7">
 							<img class="slide-img img-responsive" src="img/slider/s23.png"
 								alt="" />
-						</div> <!-- LAYER NR. 3.3 -->
-						<div class="tp-caption customin customout" data-x="right"
+						</div> LAYER NR. 3.3 --> <!-- <div class="tp-caption customin customout" data-x="right"
 							data-hoffset="-80" data-y="190"
 							data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
 							data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
@@ -135,18 +137,18 @@
 							data-endspeed="300" style="z-index: 8">
 							<img class="slide-img img-responsive" src="img/slider/s24.png"
 								alt="" />
-						</div>
+						</div> -->
 					</li>
+					<!--두번째 슬라이드 이미지-->
 					<li data-transition="zoomin" data-slotamount="6"
 						data-masterspeed="400">
-						<!-- MAIN IMAGE --> <img src="img/slider/transparent.png"
+						<!-- MAIN IMAGE --> <img src="img/slider/slide1.jpg"
 						style="background-color: #fff" alt="" data-bgfit="cover"
 						data-bgposition="center bottom" data-bgrepeat="no-repeat"> <!-- LAYERS -->
-						<!-- LAYER NR. 1 -->
-						<div class="tp-caption sfl modern_medium_light" data-x="20"
+						<!-- LAYER NR. 1 --> <!-- <div class="tp-caption sfl modern_medium_light" data-x="20"
 							data-y="90" data-speed="800" data-start="1000"
 							data-easing="Power4.easeOut" data-endspeed="500"
-							data-endeasing="Power4.easeIn" style="z-index: 3">The New</div> <!-- LAYER NR. 1.1 -->
+							data-endeasing="Power4.easeIn" style="z-index: 3"></div> LAYER NR. 1.1
 						<div class="tp-caption large_bold_grey heading customin customout"
 							data-x="10" data-y="125" data-splitin="chars"
 							data-splitout="chars" data-elementdelay="0.05" data-start="1500"
@@ -154,7 +156,7 @@
 							data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
 							data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
 							data-endspeed="500" data-endeasing="Power3.easeInOut"
-							data-captionhidden="on" style="z-index: 5">CakeFactory</div> <!-- LAYER NR. 2 -->
+							data-captionhidden="on" style="z-index: 5"></div> LAYER NR. 2
 						<div class="tp-caption customin customout" data-x="right"
 							data-y="100"
 							data-customin="x:50;y:150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;"
@@ -163,8 +165,7 @@
 							data-endspeed="500" data-endeasing="Power4.easeIn"
 							style="z-index: 3">
 							<img class="img-responsive" src="img/slider/s11.png" alt="" />
-						</div> <!-- LAYER NR. 2.1 -->
-						<div class="tp-caption customin customout" data-x="right"
+						</div> --> <!-- LAYER NR. 2.1 --> <!-- <div class="tp-caption customin customout" data-x="right"
 							data-y="100"
 							data-customin="x:50;y:150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;"
 							data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
@@ -172,7 +173,7 @@
 							data-endspeed="500" data-endeasing="Power4.easeIn"
 							style="z-index: 3">
 							<img class="img-responsive" src="img/slider/s12.png" alt="" />
-						</div> <!-- LAYER NR. 2.2 -->
+						</div> LAYER NR. 2.2
 						<div class="tp-caption customin customout" data-x="right"
 							data-y="100"
 							data-customin="x:50;y:150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;"
@@ -181,12 +182,19 @@
 							data-endspeed="500" data-endeasing="Power4.easeIn"
 							style="z-index: 3">
 							<img class="img-responsive" src="img/slider/s13.png" alt="" />
-						</div> <!-- LAYER NR. 2.3 -->
-						<div class="tp-caption sft" data-x="right" data-hoffset="-400"
+						</div> LAYER NR. 2.3 --> <!-- <div class="tp-caption sft" data-x="right" data-hoffset="-400"
 							data-y="80" data-speed="1000" data-start="3000"
 							data-easing="Power4.easeOut" data-endspeed="500"
-							data-endeasing="Power4.easeIn" style="z-index: 10">
-							<span class="price-tag br-white">30%<br />Off
+							data-endeasing="Power4.easeIn" style="z-index: 10; top:-300px;left:-40px;"> -->
+						<div class="tp-caption sft" data-x="center" data-hoffset="-10"
+							data-y="center" data-y="20" data-speed="1000" data-start="3000"
+							data-easing="Power4.easeOut" data-endspeed="500"
+							data-endeasing="Power4.easeIn"
+							style="z-index: 10; top: -300px; left: -40px;">
+							<span class="price-tag br-white"
+								style="background-color: #F5E95D;"> <a class="btn"
+								href="/TodayLunch/Rest/restList.lunch"
+								style="opacity: 1; color: #513629; top: -50px;">SEE LIST</a>
 							</span>
 						</div> <!-- LAYER NR. 3 -->
 						<div
@@ -199,44 +207,44 @@
 							data-splitout="lines" data-elementdelay="0.2"
 							data-endelementdelay="0.08" data-endspeed="300"
 							style="z-index: 10; max-width: auto; max-height: auto; white-space: nowrap;">
-							Lorem ipsum dolor sit amet, consetetur<br /> sadipscing elitr,
-							sed diam nonumy<br /> eirmod tempor invidunt ut labore et<br />
-							dolore magna aliquyam erat, sed diam <br /> voluptua. At vero
-							eos et accusam.
-						</div> <!-- LAYER NR. 4 -->
+						</div> <!-- LAYER NR. 4 슬라이드 안에 버튼-->
 						<div class="tp-caption sfb" data-x="20" data-y="335"
 							data-speed="800" data-start="4500" data-easing="Power4.easeOut"
 							data-endspeed="500" data-endeasing="Power4.easeIn"
-							style="z-index: 11">
-							<a class="btn btn-danger" href="#">Download</a> <a
-								class="btn btn-success hidden-xs" href="#">Purchase Now</a>
-						</div>
+							style="z-index: 11"></div>
 					</li>
 					<li data-transition="slidehorizontal" data-slotamount="1"
 						data-masterspeed="600">
-						<!-- MAIN IMAGE --> <img src="img/slider/transparent.png"
-						style="background-color: #fea501" alt="" data-bgfit="cover"
-						data-bgposition="center bottom" data-bgrepeat="no-repeat"> <!-- LAYERS NR. 1 -->
-						<div class="tp-caption lfl" data-x="left" data-y="100"
-							data-speed="800" data-start="1200" data-easing="Power4.easeOut"
-							data-endspeed="300" data-endeasing="Linear.easeNone"
-							data-captionhidden="off">
-							<img class="img-responsive" src="img/slider/s35.png" alt="" />
+						<!-- MAIN IMAGE 슬라이드 3번째 #fea501--> <img
+						src="img/slider/transparent.png" style="background-color: #E7C1BA"
+						alt="" data-bgfit="cover" data-bgposition="center bottom"
+						data-bgrepeat="no-repeat"> <!-- LAYERS NR. 1 -->
+						<div class="tp-caption lfl" data-x="left" data-y="-90"
+							data-hoffset="-100" data-speed="800" data-start="1200"
+							data-easing="Power4.easeOut" data-endspeed="300"
+							data-endeasing="Linear.easeNone" data-captionhidden="off">
+							<img class="img-responsive" src="img/slider/slide11.jpg" alt=""
+								style="width: 600px; height: 900px;" />
 						</div> <!-- LAYERS NR. 2 -->
 						<div class="tp-caption lfr large_bold_grey heading white"
 							data-x="right" data-hoffset="-10" data-y="120" data-speed="800"
 							data-start="2000" data-easing="Power4.easeOut"
 							data-endspeed="300" data-endeasing="Linear.easeNone"
-							data-captionhidden="off">Tasty Yammi</div> <!-- LAYER NR. 3 -->
-						<div
-							class="tp-caption whitedivider3px customin customout tp-resizeme"
-							data-x="right" data-hoffset="-20" data-y="210" data-voffset="0"
+							data-captionhidden="off"></div> <!-- LAYER NR. 3 => 왼쪽으로 옮길때 hoffset을 -높은 숫자 -->
+						<div class="tp-caption" data-x="right" data-hoffset="-80"
+							data-y="60" data-voffset="100"
 							data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
 							data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
 							data-speed="700" data-start="2300" data-easing="Power3.easeInOut"
 							data-splitin="none" data-splitout="none" data-elementdelay="0.1"
 							data-endelementdelay="0.1" data-endspeed="500"
-							style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">&nbsp;
+							style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap; color: #513629; font-weight: bold; font-size: 20px; text-align: center;">
+							&nbsp;
+							<h3>HOW TO USE IT?</h3>
+							<br> 1. 로그인 후 식권 구매 <br> 2. 원하는 식당에서 아이디와 <br>인증
+							번호 입력 후 사용 <br> 3. 맛있게 먹기:)<br> * 사용 내역에서 사용한 식권 또는<br>
+							남은 개수 확인 가능해요!
+
 						</div> <!-- LAYER NR. 4 -->
 						<div
 							class="tp-caption finewide_medium_white randomrotate customout tp-resizeme"
@@ -246,7 +254,7 @@
 							data-easing="Power3.easeInOut" data-splitin="chars"
 							data-splitout="chars" data-elementdelay="0.08"
 							data-endelementdelay="0.08" data-endspeed="500"
-							style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">Hamburger
+							style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
 						</div> <!-- LAYER NR. 5 -->
 						<div
 							class="tp-caption finewide_verysmall_white_mw white customin customout tp-resizeme text-right paragraph"
@@ -258,64 +266,48 @@
 							data-splitout="lines" data-elementdelay="0.2"
 							data-endelementdelay="0.08" data-endspeed="300"
 							style="z-index: 10; max-width: auto; max-height: auto; white-space: nowrap;">
-							Lorem ipsum dolor sit amet, consetetur sadipscing elitr,<br />
-							nonumy voluptu ansetetur sadipscing elit. <br /> sed diam
-							quisquam est nonumy voluptu vero eos et.
 						</div>
 					</li>
 					<li data-transition="cube" data-slotamount="7"
 						data-masterspeed="600">
-						<!-- MAIN IMAGE --> <img src="img/slider/slide2.jpg" alt=""
+						<!-- MAIN IMAGE 슬라이드 4 --> <img src="img/slider/slide2.jpg" alt=""
 						data-bgfit="cover" data-bgposition="center bottom"
-						data-bgrepeat="no-repeat"> <!-- LAYERS NR. 1 -->
+						data-bgrepeat="no-repeat"> <!-- LAYERS NR. 1 모니터 -->
 						<div class="tp-caption lfl" data-x="110" data-y="130"
 							data-speed="800" data-start="1500" data-easing="Power4.easeOut"
 							data-endspeed="300" data-endeasing="Power4.easeIn"
 							data-captionhidden="off">
-							<img src="img/slider/s31.png" class="img-responsive" alt="" />
-						</div> <!-- LAYERS NR. 2 -->
+							<img src="img/slider/monitor.png" class="img-responsive" alt="" />
+						</div> <!-- LAYERS NR. 2 테블랫 -->
 						<div class="tp-caption lfl" data-x="80" data-y="265"
 							data-speed="800" data-start="2200" data-easing="Power4.easeOut"
 							data-endspeed="300" data-endeasing="Power4.easeIn"
 							data-captionhidden="off">
-							<img src="img/slider/s33.png" class="img-responsive" alt="" />
-						</div> <!-- LAYERS NR. 3 -->
+							<img src="img/slider/tab.png" class="img-responsive" alt="" />
+						</div> <!-- LAYERS NR. 3 핸드폰-->
 						<div class="tp-caption lfl" data-x="450" data-y="312"
 							data-speed="800" data-start="2700" data-easing="Power4.easeOut"
 							data-endspeed="300" data-endeasing="Power4.easeIn"
 							data-captionhidden="off">
-							<img src="img/slider/s34.png" class="img-responsive" alt="" />
+							<img src="img/slider/phone.png" class="img-responsive" alt="" />
 						</div> <!-- LAYERS NR. 4 -->
 						<div class="tp-caption sfr  thinheadline_dark white"
 							data-x="right" data-hoffset="-10" data-y="90" data-speed="800"
 							data-start="3200" data-easing="Power4.easeOut"
 							data-endspeed="500" data-endeasing="Power4.easeIn"
-							style="z-index: 3">Online</div> <!-- LAYERS NR. 4.1 -->
+							style="z-index: 3"></div> <!-- LAYERS NR. 4.1 -->
 						<div class="tp-caption lfr largepinkbg br-green" data-x="right"
 							data-hoffset="-10" data-y="135" data-speed="800"
 							data-start="3500" data-easing="Power4.easeOut"
 							data-endspeed="300" data-endeasing="Linear.easeNone"
-							data-captionhidden="off">Seats Reserve</div> <!-- LAYERS NR. 5 -->
+							data-captionhidden="off"></div> <!-- LAYERS NR. 5 -->
 						<div
 							class="tp-caption skewfromright medium_text text-right paragraph"
 							data-x="right" data-hoffset="-10" data-y="225" data-speed="800"
 							data-start="3800" data-easing="Power4.easeOut"
 							data-endspeed="400" data-endeasing="Power4.easeOut"
-							data-captionhidden="off">
-							At vero eos etntium accu amet, adipisicing samus iusto<br />praese
-							delen itieos etconsectetur atque corrupti<br />praese etntiumder
-							delen itierrupti.
-						</div> <!-- LAYERS NR. 6 // -->
-						<div class="tp-caption lfr modern_big_redbg br-red" data-x="right"
-							data-hoffset="-10" data-y="315" data-speed="1500"
-							data-start="4100" data-easing="Power4.easeOut"
-							data-endspeed="300" data-endeasing="Linear.easeNone"
-							data-captionhidden="off">Desktop or Laptop</div> <!-- LAYERS NR. 6.1 // -->
-						<div class="tp-caption lfr modern_big_redbg br-yellow"
-							data-x="right" data-hoffset="-10" data-y="375" data-speed="1500"
-							data-start="4400" data-easing="Power4.easeOut"
-							data-endspeed="300" data-endeasing="Linear.easeNone"
-							data-captionhidden="off">Tablet or Phone</div>
+							data-captionhidden="off"></div> <!-- LAYERS NR. 6 // -->
+
 					</li>
 				</ul>
 				<!-- Banner Timer -->
@@ -327,7 +319,7 @@
 
 
 		<!-- Main Content -->
-		<div class="main-content">
+		<div class="main-content" style="background-color: #F2EFE9;">
 
 			<!-- Showcase Start -->
 
@@ -344,29 +336,29 @@
 						<!-- Crown image -->
 						<img class="img-responsive" src="img/crown.png" alt="" />
 						<!-- Heading -->
-						<h2>오늘의 점심은?</h2>
+						<h2 style="color: #513629; font-weight: bold;">오늘의 점심은?</h2>
 						<!-- Paragraph -->
-						<p>이럴 때 사용하세요!</p>
+						<p style="color: #513629;">이럴 때 사용하세요!</p>
 						<!-- Border -->
 						<div class="border"></div>
 					</div>
 					<div class="row">
-						<div class="col-md-3 col-sm-6">
+						<div class="col-md-3 col-sm-6" style="background-color: #F2EFE9;">
 							<div class="dishes-item-container">
 								<!-- Image Frame -->
 								<div class="img-frame">
 									<!-- Image -->
-									<img src="img/dish/dish5.jpg" class="img-responsive" alt="" />
+									<img src="img/dish/work1.jpg" class="img-responsive" alt="" />
 									<!-- Block for on hover effect to image -->
-									<div class="img-frame-hover">
-										<!-- Hover Icon -->
+									<!-- <div class="img-frame-hover">
+										Hover Icon
 										<a href="#"><i class="fa fa-cutlery"></i></a>
-									</div>
+									</div> -->
 								</div>
 								<!-- Dish Details -->
 								<div class="dish-details">
 									<!-- Heading -->
-									<h3>
+									<h3 style="color: #513629;">
 										강남에서 일하는<br>당신
 									</h3>
 									<!-- Paragraph -->
@@ -381,17 +373,17 @@
 								<!-- Image Frame -->
 								<div class="img-frame">
 									<!-- Image -->
-									<img src="img/dish/dish6.jpg" class="img-responsive" alt="" />
+									<img src="img/dish/work4.jpg" class="img-responsive" alt="" />
 									<!-- Block for on hover effect to image -->
-									<div class="img-frame-hover">
-										<!-- Hover Icon -->
+									<!-- <div class="img-frame-hover">
+										Hover Icon
 										<a href="#"><i class="fa fa-cutlery"></i></a>
-									</div>
+									</div> -->
 								</div>
 								<!-- Dish Details -->
 								<div class="dish-details">
 									<!-- Heading -->
-									<h3>
+									<h3 style="color: #513629;">
 										또 다시 점심시간!<br>&nbsp;
 									</h3>
 									<!-- Paragraph -->
@@ -404,17 +396,17 @@
 								<!-- Image Frame -->
 								<div class="img-frame">
 									<!-- Image -->
-									<img src="img/dish/dish7.jpg" class="img-responsive" alt="" />
+									<img src="img/dish/work3.jpg" class="img-responsive" alt="" />
 									<!-- Block for on hover effect to image -->
-									<div class="img-frame-hover">
-										<!-- Hover Icon -->
+									<!-- <div class="img-frame-hover">
+										Hover Icon
 										<a href="#"><i class="fa fa-cutlery"></i></a>
-									</div>
+									</div> -->
 								</div>
 								<!-- Dish Details -->
 								<div class="dish-details">
 									<!-- Heading -->
-									<h3>
+									<h3 style="color: #513629;">
 										맛집이 뭐냐,<br>귀찮기만 하고..
 									</h3>
 									<!-- Paragraph -->
@@ -427,17 +419,17 @@
 								<!-- Image Frame -->
 								<div class="img-frame">
 									<!-- Image -->
-									<img src="img/dish/dish8.jpg" class="img-responsive" alt="" />
+									<img src="img/dish/work2.jpg" class="img-responsive" alt="" />
 									<!-- Block for on hover effect to image -->
-									<div class="img-frame-hover">
-										<!-- Hover Icon -->
+									<!-- <div class="img-frame-hover">
+										Hover Icon
 										<a href="#"><i class="fa fa-cutlery"></i></a>
-									</div>
+									</div> -->
 								</div>
 								<!-- Dish Details -->
 								<div class="dish-details">
 									<!-- Heading -->
-									<h3>
+									<h3 style="color: #513629;">
 										급식같은 거<br>어디 없나?
 									</h3>
 
@@ -459,32 +451,37 @@
 						<!-- Crown image -->
 						<img class="img-responsive" src="img/crown.png" alt="" />
 						<!-- Heading -->
-						<h2>Menu</h2>
+						<h2 style="color: #513629; font-weight: bold">Menu</h2>
 						<!-- Paragraph -->
-						<p>${date}의메뉴</p>
+						<!-- 오늘 날짜 출력 -->
+						<p style="color: #513629;">${date}의&nbsp;메뉴</p>
 						<!-- Border -->
 						<div class="border"></div>
 					</div>
 					<!-- Menu content container -->
 					<div class="menu-container">
 						<div class="row flex-container">
-							<c:if test="${allMenu!=null }">
+							<!-- 오늘 날짜로 등록된 메뉴가 있을 때 -->
+							<c:if test="${allMenuSize!=0 }">
 								<c:forEach var="mainMenu" items="${allMenu}" varStatus="status">
 									<div class="col-md-4 col-sm-4">
 										<!-- Menu header -->
-										<a href="/TodayLunch/Rest/showRest.lunch?r_name=${mainMenu.r_name}">
-										<div class="menu-head">
+										<!-- 식당 소개 페이지 링크 -->
+										<%-- <a href="/TodayLunch/Rest/showRest.lunch?r_name=${mainMenu.r_name}"> --%>
+										<div class="menu-head"
+											onClick="location.href='/TodayLunch/Rest/showRest.lunch?r_name=${mainMenu.r_name}'">
 											<!-- Image for menu item -->
 											<img class="menu-img img-responsive img-thumbnail"
-												src="img/menu/menu1.jpg" alt="" />
+												src="${r_img0List[status.index] }" alt="" />
 											<!-- Menu title / Heading -->
-											<h3>${mainMenu.r_name}</h3>
+											<!-- 식당 이름 출력 -->
+											<h3 style="color: #fff;">${mainMenu.r_name}</h3>
 											<!-- Border for above heading -->
-											<div class="title-border br-red"></div>
+											<div class="title-border" style="border-bottom:3px solid #E7C1BA"></div>
 										</div>
-										</a>
+										<!-- </a> -->
 										<!-- Menu item details -->
-										<div class="menu-details br-red">
+										<div class="menu-details" style="background-color:#E7C1BA;border-color:#6C702F">
 											<!-- Menu list -->
 											<ul class="list-unstyled">
 												<c:forEach var="m_array" items="${m_arrayList}"
@@ -494,7 +491,9 @@
 														<li>
 															<div class="menu-list-item">
 																<!-- Icon -->
-																<i class="fa fa-angle-right"></i> <a>${menu}</a>
+																<!-- 해당 식당의 메뉴를 하나씩 출력 -->
+																<i class="fa fa-angle-right"></i> 
+																<a style="color:#513629">${menu}</a>
 															</div>
 														</li>
 													</c:forEach>
@@ -506,10 +505,11 @@
 									</div>
 								</c:forEach>
 							</c:if>
-							<c:if test="${allMenu==null }">
+							<!-- 오늘 날짜로 등록된 메뉴가 없을 때 -->
+							<c:if test="${allMenuSize==0 }">
 								<div class="col-md-12 col-sm-12">
 
-									<h2 class="text-center">등록된 메뉴가 없습니다.</h2>
+									<h2 class="text-center" style="color: #513629;">등록된 메뉴가 없습니다.</h2>
 
 								</div>
 							</c:if>
@@ -538,11 +538,9 @@
 						<!-- Crown image -->
 						<img class="img-responsive" src="img/crown.png" alt="" />
 						<!-- Heading -->
-						<h2>Our Chefs</h2>
+						<h2 style="color: #513629; font-weight: bold">개발자들</h2>
 						<!-- Paragraph -->
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.</p>
+						<p style="color: #513629;">KIC 캠퍼스(2017.11~2018.5)</p>
 						<!-- Border -->
 						<div class="border"></div>
 					</div>
@@ -554,17 +552,17 @@
 								<div class="chefs-head">
 									<!-- Member background image -->
 									<img class="chefs-back img-responsive"
-										src="img/chef/c-back2.jpg" alt="" />
+										src="img/sky.jpg" alt="" />
 									<!-- chef member image -->
-									<img class="chefs-img img-responsive" src="img/chef/4.jpg"
+									<img class="chefs-img img-responsive" src="img/user1.jpg"
 										alt="" />
 								</div>
 								<!--Name / Heading -->
-								<h3>
-									<a href="#">Venison Gorky</a>
+								<h3 style="color: #513629; font-weight: bold">
+									<a href="#">김지혜</a>
 								</h3>
 								<!-- Member designation -->
-								<span>Chefs Incharge</span>
+								<span>로그인/개인 회원 마이페이지</span>
 								<!-- Social media links -->
 								<div class="social">
 									<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -582,17 +580,17 @@
 								<div class="chefs-head">
 									<!-- Member background image -->
 									<img class="chefs-back img-responsive"
-										src="img/chef/c-back1.jpg" alt="" />
+										src="img/sky.jpg" alt="" />
 									<!-- chef member image -->
-									<img class="chefs-img img-responsive" src="img/chef/7.jpg"
+									<img class="chefs-img img-responsive" src="img/user1.jpg"
 										alt="" />
 								</div>
 								<!--Name / Heading -->
-								<h3>
-									<a href="#">Million Carey</a>
+								<h3 style="color: #513629; font-weight: bold">
+									<a href="#">노인욱</a>
 								</h3>
 								<!-- Member designation -->
-								<span>Chefs Incharge</span>
+								<span>이메일 인증/관리자 마이페이지</span>
 								<!-- Social media links -->
 								<div class="social">
 									<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -610,17 +608,17 @@
 								<div class="chefs-head">
 									<!-- Member background image -->
 									<img class="chefs-back img-responsive"
-										src="img/chef/c-back3.jpg" alt="" />
+										src="img/sky.jpg" alt="" />
 									<!-- chef member image -->
-									<img class="chefs-img img-responsive" src="img/chef/2.jpg"
+									<img class="chefs-img img-responsive" src="img/user1.jpg"
 										alt="" />
 								</div>
 								<!--Name / Heading -->
-								<h3>
-									<a href="#">Juliet Watson</a>
+								<h3 style="color: #513629; font-weight: bold">
+									<a href="#">문희경</a>
 								</h3>
 								<!-- Member designation -->
-								<span>Chefs Incharge</span>
+								<span>리뷰</span>
 								<!-- Social media links -->
 								<div class="social">
 									<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -639,17 +637,17 @@
 								<div class="chefs-head">
 									<!-- Member background image -->
 									<img class="chefs-back img-responsive"
-										src="img/chef/c-back2.jpg" alt="" />
+										src="img/sky.jpg" alt="" />
 									<!-- chef member image -->
-									<img class="chefs-img img-responsive" src="img/chef/4.jpg"
+									<img class="chefs-img img-responsive" src="img/user1.jpg"
 										alt="" />
 								</div>
 								<!--Name / Heading -->
-								<h3>
-									<a href="#">Venison Gorky</a>
+								<h3 style="color: #513629; font-weight: bold">
+									<a href="#">이고우나</a>
 								</h3>
 								<!-- Member designation -->
-								<span>Chefs Incharge</span>
+								<span>식당 회원 마이페이지</span>
 								<!-- Social media links -->
 								<div class="social">
 									<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -668,17 +666,17 @@
 								<div class="chefs-head">
 									<!-- Member background image -->
 									<img class="chefs-back img-responsive"
-										src="img/chef/c-back2.jpg" alt="" />
+										src="img/sky.jpg" alt="" />
 									<!-- chef member image -->
-									<img class="chefs-img img-responsive" src="img/chef/4.jpg"
+									<img class="chefs-img img-responsive" src="img/user1.jpg"
 										alt="" />
 								</div>
 								<!--Name / Heading -->
-								<h3>
-									<a href="#">Venison Gorky</a>
+								<h3 style="color: #513629; font-weight: bold">
+									<a href="#">한희원</a>
 								</h3>
 								<!-- Member designation -->
-								<span>Chefs Incharge</span>
+								<span>회원가입</span>
 								<!-- Social media links -->
 								<div class="social">
 									<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -709,28 +707,29 @@
 
 
 		<!-- 페이지는 그대로인체 특정 이벤트를 발생시 전면에 페이지가 나오게 하는 형태 시작 -->
-		<a id="notice_check" data-toggle="modal" href="#shoppingcart1"
-			class="btn btn-danger">Launch demo modal</a>
+		<span style="left:10px;position: fixed;bottom:10px;"><a id="notice_check" data-toggle="modal" href="#shoppingcart1"
+			class="btn" style="background-color:#A22B2A;color:#fff;border-radius:20px;">공지사항</a>
+	</span>
 
 		<!-- Footer End -->
 
 		<div class="modal fade" id="shoppingcart1" tabindex="-1" role="dialog"
 			aria-hidden="false" style="display: blcok;">
-			<div class="modal-dialog">
+			<div class="modal-dialog"  style="background-color:#F2EFE9;">
 				<div class="modal-content">
-					<div class="modal-header">
+					<div class="modal-header"  style="background-color:#F2EFE9;">
 						<h2>공지사항</h2>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">×</button>
 					</div>
-					<div class="modal-body">
+					<div class="modal-body" style="background-color:#F2EFE9;border-top:2px solid #E7C1BA">
 						<!-- Items table -->
-						<table class="table table-striped">
+						<table class="table">
 							<thead>
 								<tr>
-									<th>제목</th>
-									<th>날짜</th>
-									<th>쓸거없다</th>
+									<th  style="color:#513629;">제목</th>
+									<th>내용</th>
+									<th>작성일</th>
 								</tr>
 							</thead>
 							<tbody id="notice">
@@ -760,7 +759,8 @@
 
 
 	<!-- Scroll to top -->
-	<span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span>
+	<span class="totop"><a href="#"><i class="fa fa-angle-up" 
+	style="background: #A22B2A;"></i></a></span>
 
 
 
@@ -817,13 +817,24 @@
 
 			//*****************************
 			//여기서부터 공지사항 ajax 사용
+			var check = 0;
 			$('#notice_check').click(function() {
-				$.ajax({
-					url : "/TodayLunch/Admin/notice.jsp",
-					success : function(data) {
-						$('#notice').html(data);
-					}
-				})
+
+				if (check == 0) {
+					$.ajax({
+						url : "notice.lunch",
+						success : function(data) {
+							$.each(data.list, function() {
+								var notice = "<tr><td>";
+								notice += this.no_num + "</td><td>";
+								notice += this.no_content + "</td><td>";
+								notice += this.no_time + "</td></tr>";
+								$('#notice').append(notice);
+								check = 1;
+							})
+						}
+					})
+				}
 			})
 
 		})
@@ -853,6 +864,49 @@
 			overlay_gallery : false,
 			social_tools : false
 		});
+
+		
+		$(function() {
+			//resizeFont();
+			//$('img .menu-img').on('load', function(){resizeFont()});
+			$(window).load(function() {resizeFont();})
+			$(window).resize(function() {
+				resizeFont();
+			})
+		})
+		//윈도우 크기가 바뀔 때마다 메인의 식당 이름 폰트 사이즈도 변경하기
+		function resizeFont() {
+			//alert("resizeFont")
+			$('.menu-head h3').each(function(index) {
+				var h3textlength = $(this).text().length;
+				var divwidth = $(this).width();
+				if (h3textlength < 4) {
+					divwidth = $(this).width() * 0.4;
+					/*$(this).css({
+						"font-size" : divwidth / h3textlength + "px"
+					}); */
+				} else if (h3textlength < 8) {
+					divwidth = $(this).width() * 0.8;
+				} else {
+					//divwidth=$(this).width()*0.9;
+				}
+				//alert($(this).height())
+				var marginTop = divwidth / h3textlength;
+				$(this).next().css({
+					"width" : $(this).width() * 0.6 + "px",
+					"margin-left" : $(this).width() * -0.3 + "px",
+					"margin-top" : marginTop / 2 + "px",
+					
+				})
+				$(this).css({
+					"top" : "30px",
+					"height" : $(this).parent().height() + "px",
+					"line-height" : $(this).parent().height() + "px",
+					"font-size" : marginTop + "px"
+				}); 
+			})
+
+		}
 	</script>
 </body>
 </html>

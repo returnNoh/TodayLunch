@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <!-- Title here -->
-<title>식권 사용 내역 페이지</title>
+<title>식권 매출 내역 페이지</title>
 
 <!-- Description, Keywords and Author -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,71 +37,12 @@
 </head>
 
 <body>
-
-
-	<!-- Shopping cart Modal -->
-	<div class="modal fade" id="shoppingcart1" tabindex="-1" role="dialog"
-		aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Shopping Cart</h4>
-				</div>
-				<div class="modal-body">
-					<!-- Items table -->
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Quantity</th>
-								<th>Price</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><a href="#">Exception Reins Evocative</a></td>
-								<td>2</td>
-								<td>$200</td>
-							</tr>
-							<tr>
-								<td><a href="#">Taut Mayoress Alias Appendicitis</a></td>
-								<td>1</td>
-								<td>$190</td>
-							</tr>
-							<tr>
-								<td><a href="#">Sinter et Molests Perfectionist</a></td>
-								<td>4</td>
-								<td>$99</td>
-							</tr>
-							<tr>
-								<th></th>
-								<th>Total</th>
-								<th>$489</th>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Continue
-						Shopping</button>
-					<button type="button" class="btn btn-info">Checkout</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
-	<!-- Model End -->
-
 	<!-- Page Wrapper -->
-	<div class="wrapper">
+	<div class="wrapper" style="background-color: #F2EFE9;">
 
 		<!-- Header Start -->
 
-		<jsp:include page="../top.jsp"/>
+		<jsp:include page="../top.jsp" />
 		<!-- Header End -->
 
 		<!-- Banner Start -->
@@ -111,11 +52,11 @@
 				<!-- Image -->
 				<img class="img-responsive" src="../img/crown-white.png" alt="" />
 				<!-- Heading -->
-				<h2 class="white">식권 사용 내역</h2>
+				<h2 class="white">식권 매출 내역</h2>
 				<ol class="breadcrumb">
 					<li><a href="../index.jsp">메인</a></li>
 					<li><a href="myPage.lunch">마이 페이지</a></li>
-					<li class="active">식권 사용 내역</li>
+					<li class="active">식권 매출 내역</li>
 				</ol>
 				<div class="clearfix"></div>
 			</div>
@@ -131,66 +72,95 @@
 			<!-- Inner page menu start -->
 			<div class="inner-menu">
 				<div class="container">
-				<!-- Heading -->
-				<h3 style="border-bottom: 4px double #eee;">${r_name}의 정보</h3>
-					<div class="row">
-						<c:if test="${u_sikList!=null }">
-						<c:forEach var="u_sik" items="${u_sikList}">
-						<div class="col-md-4 col-sm-6">
-							<!-- Inner page menu list -->
-							<div class="menu-list">
-								<!-- Menu item heading -->
-								<h3>${u_sik.key}</h3>
-								<!-- Image for menu list -->
-								<img class="img-responsive" src="../img/menu/menu2.jpg" alt="" />
-								<!-- Menu list items -->
-								<div class="menu-list-item">
-									<!-- Heading / Dish name -->
-									<h4 class="pull-left">식권 이용 고객</h4>
-									<!-- Dish price -->
-									<span class="price pull-right">${u_sik.value} 명</span>
-									<div class="clearfix"></div>
+					<!-- Heading -->
+					<h3
+						style="border-bottom: 4px double #6C702F; color: #513629; font-weight: bold">${r_name}의&nbsp;정보</h3>
+					<!-- 식권 매출 내역이 있다면 -->
+					<c:if test="${u_sikList!=null }">
+						<div class="row">
+							<c:forEach var="u_sik" items="${u_sikList}">
+								<div class="col-md-6 col-sm-6">
+									<!-- Inner page menu list -->
+									<div class="menu-list">
+										<!-- Menu item heading -->
+										<!-- 날짜 -->
+										<h3>${u_sik.key}</h3>
+										<!-- Image for menu list -->
+										<img class="img-responsive" src="../img/menu/menu1.jpg" alt="" />
+										<!-- Menu list items -->
+										<div class="menu-list-item">
+											<!-- Heading / Dish name -->
+											<h4 class="pull-left" style="color: #513629">식권 이용 고객</h4>
+											<!-- Dish price -->
+											<!-- 해당 날짜에 식당에서 사용된 식권의 개수 -->
+											<span class="price pull-right" style="color: #513629">${u_sik.value}
+												명</span>
+											<div class="clearfix"></div>
+										</div>
+									</div>
 								</div>
-							</div>
+							</c:forEach>
 						</div>
-						</c:forEach>
-						</c:if>
-						<c:if test="${u_sikList==null }">
-						
-						<h2 class="text-center">사용된 내역이 없습니다.</h2>
-						</c:if>
-						
-						
-						
-					</div>
+						<div class="row text-center">
+							<ul class="pagination">
+								<!-- 페이징 처리 -->
+								<c:if test="${pgList.startPage>pgList.blockSize}">
+									<li><a
+										href="/TodayLunch/Mypage_r/sikInfo.lunch?pageNum=${pgList.startPage-pgList.blockSize}">«</a>
+									</li>
+								</c:if>
+
+								<c:forEach var="i" begin="${pgList.startPage}"
+									end="${pgList.endPage}">
+
+									<c:if test="${i==pgList.currentPage}">
+										<li class="active"><a
+											href="/TodayLunch/Mypage_r/sikInfo.lunch?pageNum=${i}"> <b>${i}</b>
+										</a></li>
+									</c:if>
+
+									<c:if test="${i!=pgList.currentPage}">
+										<li><a
+											href="/TodayLunch/Mypage_r/sikInfo.lunch?pageNum=${i}">${i}</a>
+										</li>
+									</c:if>
+
+								</c:forEach>
+
+								<c:if test="${pgList.endPage<pgList.pageCount}">
+									<li><a
+										href="/TodayLunch/Mypage_r/sikInfo.lunch?pageNum=${pgList.startPage+pgList.blockSize}">»</a>
+									</li>
+								</c:if>
+							</ul>
+						</div>
+					</c:if>
+					<!-- 식권 매출 내역이 없다면 -->
+					<c:if test="${u_sikList==null }">
+						<div class="row">
+							<h2 class="text-center">사용된 내역이 없습니다.</h2>
+						</div>
+					</c:if>
 				</div>
 			</div>
-
 			<!-- Inner page menu end -->
-
-			<!-- Showcase Start -->
-
-			
-
-			<!-- Showcase End -->
 
 		</div>
 		<!-- / Inner Page Content End -->
 
 		<!-- Footer Start -->
 
-		<jsp:include page="../footer.jsp"/>
+		<jsp:include page="../footer.jsp" />
 
 		<!-- Footer End -->
+		<!-- Scroll to top -->
+		<span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span>
 
 	</div>
 	<!-- / Wrapper End -->
 
 
-	<!-- Scroll to top -->
-	<span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span>
 
-<input type="text">
 
 	<!-- Javascript files -->
 	<!-- jQuery -->
@@ -207,7 +177,7 @@
 	<script src="../js/custom.js"></script>
 	<!-- JS code for this page -->
 	<script>
-	
+		
 	</script>
 </body>
 </html>

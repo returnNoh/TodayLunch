@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <!-- Title here -->
-<title>Contact Us - CakeFactory</title>
+<title>Admin - Member</title>
 <!-- Description, Keywords and Author -->
 <meta name="description" content="Your description">
 <meta name="keywords" content="Your,Keywords">
@@ -57,10 +57,10 @@
 				<!-- Image -->
 				<img class="img-responsive" src="../img/crown-white.png" alt="" />
 				<!-- Heading -->
-				<h2 class="white">Contact Us</h2>
+				<h2 class="white">Admin - Member</h2>
 				<ol class="breadcrumb">
-					<li><a href="index.html">Home</a></li>
-					<li class="active">Contact</li>
+					<li><a href="/TodayLunch/main.lunch">HOME</a></li>
+					<li><a href="myPage.lunch">MY PAGE</a></li>
 				</ol>
 				<div class="clearfix"></div>
 			</div>
@@ -80,7 +80,6 @@
 					<div class="row">
 						<div class="col-md-12">
 
-							전체 글:${pgList.beginPerPage}
 							<center>
 								<a class="btn"
 									href="/TodayLunch/Admin/getPeople.lunch?type=person"
@@ -104,52 +103,50 @@
 		pglist.put("beginPerPage", beginPerPage); -->
 
 								<br>
-								<c:if test="${pgList.count==0}">
-
+								<c:if test="${pgList eq null}">
 
 분류를 선택하여주세요
-
 
 </c:if>
 
 
 
 								<c:if test="${pgList.beginPerPage>0}">
-									<table border="1" width="700" cellpadding="0" cellspacing="0"
-										align="center" class="table">
-										<tr height="30" bgcolor="#b0e0e6">
-											<td align="center" width="50">번 호</td>
-											<td align="center" width="250">아이디</td>
-											<td align="center" width="100">이메일</td>
+									<table class="table table-striped">
+										<thead>
+										<tr>
+											<td>번 호</td>
+											<td>아이디</td>
+											<td>이메일</td>
 											<!-- <td align="center"  width="150" >작성일</td>  -->
-											<td align="center" width="50">이 름</td>
+											<td>
+											이 름 or 연락처
+											</td>
 										</tr>
-
+										</thead>
 
 										<c:set var="beginPerPage" value="${pgList.beginPerPage}" />
 										<c:forEach var="list" items="${list}">
 
-											<tr height="30"
-												onmouseover="this.style.backgroundColor='blue'"
-												onmouseout="this.style.backgroundColor='#e0ffff'">
+											<tr>
 
-												<td align="center" width="50"><c:out
+												<td><c:out
 														value="${beginPerPage}" /> <c:set var="beginPerPage"
 														value="${beginPerPage-1}" /></td>
 
-												<td width="250"><a href="">${list.p_id}</a></td>
-												<td align="center" width="100"><a
-													href="mailto:${list.p_email}">${list.p_email}
+												<td><a href="">${list.p_id} ${list.r_id}</a></td>
+												<td><a
+													href="mailto:${list.p_email} ${list.r_email}">${list.p_email} ${list.r_email}
 														</a></td>
 												<!-- <td align="center"  width="150">
     </td> -->
-												<td align="center" width="50">${list.p_name}</td>
+												<td>${list.p_name} ${list.r_phone}</td>
 
 											</tr>
 										</c:forEach>
 
 									</table>
-								</c:if>
+								
 								<ul class="pagination">
 
 									<c:if test="${pgList.startPage>pgList.blockSize}">
@@ -182,8 +179,9 @@
 										</li>
 									</c:if>
 								</ul>
+								</c:if>
 						</div>
-
+</center>
 					</div>
 				</div>
 			</div>
@@ -191,43 +189,6 @@
 			<!-- Contact Us End -->
 
 			<!-- Showcase Start -->
-
-			<div class="showcase">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-sm-6">
-							<!-- Showcase section item -->
-							<div class="showcase-item">
-								<!-- Image -->
-								<img class="img-responsive" src="../img/fruit2.png" alt="" />
-								<!-- Heading -->
-								<h3>
-									<a href="#">Equine Porno Sumos</a>
-								</h3>
-								<!-- Paragraph -->
-								<p>Nam libero tempore, cum soluta nobis est minis voluptas
-									assum simple and easy to distinguis quo.</p>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-						<div class="col-md-6 col-sm-6">
-							<!-- Showcase section item -->
-							<div class="showcase-item">
-								<!-- Image -->
-								<img class="img-responsive" src="../img/fruit3.png" alt="" />
-								<!-- Heading -->
-								<h3>
-									<a href="#">Equine Porno Sumos</a>
-								</h3>
-								<!-- Paragraph -->
-								<p>Nam libero tempore, cum soluta nobis est minis voluptas
-									assum simple and easy to distinguis quo.</p>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 
 			<!-- Showcase End -->
 
@@ -267,115 +228,3 @@
 </body>
 </html>
 
-<%-- 
-</head>
-<body>
-
-
-
-전체 글:${pgList.beginPerPage}
-<center>
-<a href="/TodayLunch/Admin/getPeople.lunch?type='people'" id="people">개인</a>
-//
-<a href="/TodayLunch/Admin/getPeople.lunch?type='rest'" id="rest">식당</a>
-<!-- 
-		pglist.put("currentPage", currentPage);
-		
-		pglist.put("pageSize", pageSize);
-		pglist.put("blockSize", blockSize);
-		
-		pglist.put("startRow", startRow);
-		pglist.put("endRow", endRow);
-		
-		pglist.put("pageCount", pageCount);
-		pglist.put("blockCount", blockCount);
-		
-		pglist.put("startPage", startPage);
-		pglist.put("endPage", endPage);
-		
-		pglist.put("beginPerPage", beginPerPage); -->
-
-<br>
-<c:if test="${pgList.count==0}">
-
-
-분류를 선택하여주세요
-
-
-</c:if>
-
-
-
-<c:if test="${pgList.beginPerPage>0}">
-<table border="1" width="700" cellpadding="0" cellspacing="0" align="center" class="table"> 
-    <tr height="30" bgcolor="#b0e0e6"> 
-      <td align="center"  width="50"  >번 호</td> 
-      <td align="center"  width="250" >아이디</td> 
-      <td align="center"  width="100" >이메일</td>
-      <!-- <td align="center"  width="150" >작성일</td>  -->
-      <td align="center"  width="50" >이 름</td> 
-    </tr>
-    
-    
-    <c:set var="beginPerPage" value="${pgList.beginPerPage}"/>
-    <c:forEach var="list" items="${list}">
-    
-   <tr height="30" onmouseover="this.style.backgroundColor='blue'" onmouseout="this.style.backgroundColor='#e0ffff'">
-   
-    <td align="center"  width="50" >
-    <c:out value="${beginPerPage}"/>
-    <c:set var="beginPerPage" value="${beginPerPage-1}"/>
-    </td>
-    
-    <td  width="250" >
-        
-	  
-      <a href="">${list.p_id}</a>  
-         
-         </td>
-    <td align="center"  width="100"> 
-       <a href="mailto:${list.p_email}">${list.p_email}</a></td>
-    <!-- <td align="center"  width="150">
-    </td> -->
-    <td align="center"  width="50">${list.p_name}</td>
-
-  </tr>
-  </c:forEach>
-  
-</table>
- </c:if>
-<ul class="pagination">
-
-<c:if test="${pgList.startPage>pgList.blockSize}">
-<li>
-<a href="/TodayLunch/Admin/getPeople.lunch?type=${type}&pageNum=${pgList.startPage-pgList.blockSize}">[이전]</a>
-</li>
-</c:if>
-
-<c:forEach var="i" begin="${pgList.startPage}" end="${pgList.endPage}">
-
-<c:if test="${i==pgList.currentPage}"> 
-<li>
-<a href="/TodayLunch/Admin/getPeople.lunch?type=${type}&pageNum=${i}">
-<font color="red>"><b>${i}</b></font>
-</a>
-</li>
-</c:if>
-
-<c:if test="${i!=pgList.currentPage}">
-<li>
-<a href="/TodayLunch/Admin/getPeople.lunch?type=${type}&pageNum=${i}">${i}</a>
-</li>
-</c:if>
-
-</c:forEach>
-
-<c:if test="${pgList.endPage<pgList.pageCount}">
-<li>
-<a href="/TodayLunch/Admin/getPeople.lunch?type=${type}&pageNum=${pgList.startPage+pgList.blockSize}">[다음]</a>
-</li>
-</c:if>
-</ul>
-
-</body>
-</html> --%>

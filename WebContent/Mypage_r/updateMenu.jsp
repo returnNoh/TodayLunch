@@ -36,68 +36,19 @@
 .necessary{
 	color: #f75353;
 }
+
+td>input{
+	width:80%;
+	margin-right:10%;
+}
+
+#newMenu{
+	width:50%;
+}
 </style>
 </head>
 
 <body>
-
-
-	<!-- Shopping cart Modal -->
-	<div class="modal fade" id="shoppingcart1" tabindex="-1" role="dialog"
-		aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Shopping Cart</h4>
-				</div>
-				<div class="modal-body">
-					<!-- Items table -->
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Quantity</th>
-								<th>Price</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><a href="#">Exception Reins Evocative</a></td>
-								<td>2</td>
-								<td>$200</td>
-							</tr>
-							<tr>
-								<td><a href="#">Taut Mayoress Alias Appendicitis</a></td>
-								<td>1</td>
-								<td>$190</td>
-							</tr>
-							<tr>
-								<td><a href="#">Sinter et Molests Perfectionist</a></td>
-								<td>4</td>
-								<td>$99</td>
-							</tr>
-							<tr>
-								<th></th>
-								<th>Total</th>
-								<th>$489</th>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Continue
-						Shopping</button>
-					<button type="button" class="btn btn-info">Checkout</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
-	<!-- Model End -->
 
 	<!-- Page Wrapper -->
 	<div class="wrapper">
@@ -146,7 +97,7 @@
 								<!-- Single item details -->
 								<div class="item-details col-md-6">
 									<!-- Heading -->
-									<h5>${dateList[0]}:</h5>
+									<h5 style="color:#513629">${dateList[0]}:</h5>
 									<!-- Recipe ingredients -->
 									<ul class="list-unstyled">
 										<c:forEach var="content" items="${m_arrayList[0]}">
@@ -163,7 +114,7 @@
 								<!-- Single item details -->
 								<div class="item-details col-md-6">
 									<!-- Heading -->
-									<h5>${dateList[1]}:</h5>
+									<h5 style="color:#513629">${dateList[1]}:</h5>
 									<!-- Recipe ingredients -->
 									<ul class="list-unstyled">
 										<c:forEach var="content" items="${m_arrayList[1]}">
@@ -181,27 +132,28 @@
 							<!-- 왼쪽 메뉴 종료-->
 							<div class="col-md-4 col-sm-12">
 								<!-- Heading -->
+								<!--날짜-->
 								<div>
-									<button class="btn btn-warning" type="button" id="prev_date">전</button>
-									<h5 id="date" style="display: inline;">${dateList[2]}:</h5>
-									<button class="btn btn-warning" type="button" id="next_date">후</button>
+									<button class="btn" type="button" id="prev_date" style="background-color:#ccccff;color:#513629;border-radius:20px;">전</button>
+									<h5 id="date" style="display: inline;color:#513629">${dateList[2]}:</h5>
+									<button class="btn" type="button" id="next_date" style="background-color:#ffcc33;color:#513629;border-radius:20px;">후</button>
 								</div>
 								<!-- Form inside table wrapper -->
-								<div class="table-responsive">
+								<div class="table-responsive" style="border-color:#F2EFE9">
 									<!-- Ordering form -->
 									<form role="form" method="post" name="updateMenuform"
 										action="/TodayLunch/Mypage_r/updateMenuPro.lunch">
 										<input type="hidden" name="r_name"
 											value="${menuList[2].r_name}"> <input type="hidden"
 											name="date" value="${dateList[2]}">
-										<!-- Table -->
-										<table class="table table-bordered" id="contentTable">
+										<!-- Table:메뉴 적는 리스트 -->
+										<table class="table table-bordered" id="contentTable" style="background-color:#E7C1BA;border:2px solid #F5E95D " >
 
 											<c:if test="${m_countList[2]!=0 }">
 												<c:forEach var="content" items="${m_arrayList[2]}"
 													varStatus="status">
 													<tr class="contentList">
-														<td><input type="text" name="content${status.index}"
+														<td style="border-color:#F5E95D"><input type="text" name="content${status.index}"
 															value="${content}"> <input type="hidden"
 															name="m_count" value="${status.count}"></td>
 													</tr>
@@ -210,16 +162,17 @@
 											<c:if test="${m_countList[2]==0 }">
 												<input type="hidden" name="m_count" value="${m_countList[2]}">
 											</c:if>
-											<tr bgcolor="LightGray">
+											<tr bgcolor="#E7C1BA ">
 												<td><div class="form-group">
 														<input type="text" id="newMenu">
-														<button type="button" class="btn btn-warning" id="addMenu">추가</button>
+														<button type="button" class="btn" id="addMenu" 
+														style="background-color:#A22B2A;color:#fff;border-radius:20px">추가</button>
 													</div></td>
 											</tr>
 											<tr>
 												<td><div class="form-group">
-														<button type="reset" class="btn btn-info">다시 작성</button>
-														<button type="submit" class="btn btn-danger">수정하기</button>
+														<button type="reset"class="btn" style="background-color:#6C702F;color:#fff;border-radius:20px">다시 작성</button>
+														<button type="submit" class="btn" style="background-color:#F5E95D;color:#513629;border-radius:20px">수정하기</button>
 													</div></td>
 											</tr>
 										</table>
@@ -229,10 +182,10 @@
 								<!--/ Table responsive class end -->
 							</div>
 							<div class="col-md-4 col-sm-12">
-								<!-- Single item details -->
+								<!-- Single item details:메뉴 보여주는 창 -->
 								<div class="item-details col-md-6">
 									<!-- Heading -->
-									<h5>${dateList[3]}:</h5>
+									<h5 style="color:#513629">${dateList[3]}:</h5>
 									<!-- Recipe ingredients -->
 									<ul class="list-unstyled">
 										<c:forEach var="content" items="${m_arrayList[3]}">
@@ -249,7 +202,7 @@
 								<!-- Single item details -->
 								<div class="item-details col-md-6">
 									<!-- Heading -->
-									<h5>${dateList[4]}:</h5>
+									<h5 style="color:#513629">${dateList[4]}:</h5>
 									<!-- Recipe ingredients -->
 									<ul class="list-unstyled">
 										<c:forEach var="content" items="${m_arrayList[4]}">
@@ -327,14 +280,14 @@
 
 			$(".inner-page").on("click", "button[type='submit']", function(event) {
 				var check=0
-				$('.contentList input').each(function(){
+				/* $('.contentList input').each(function(){
 					if($(this).val()==""){
 						alert("빈 칸이 있습니다.")
 						$(this).focus()
 						check=1
 						return false
 					}
-				})
+				}) */
 				var m_count = $(".contentList").length
 				$("input[name='m_count']").val(m_count)
 				//alert($("input[name='m_count']").val())
@@ -348,7 +301,7 @@
 							"click",
 							"#addMenu",
 							function(event) {
-								if($("#newMenu").val()==""){
+								if($.trim($("#newMenu").val())==""){
 									alert("메뉴를 입력해주세요.")
 									$("#newMenu").focus()
 									return false
@@ -356,7 +309,7 @@
 								var menustr = '<tr class="contentList"><td><input type="text" name="content'
 								menustr += $(".contentList").length
 								menustr += '" value="'
-								menustr += $("#newMenu").val()
+								menustr += $.trim($("#newMenu").val())
 								menustr += '"></td></tr>'
 								//alert("m_countList[2]:${m_countList[2]}")
 								//alert("$('input[name=m_count]').val:"+ $("input[name=m_count]").val())
@@ -390,7 +343,10 @@
 							date : dayformat
 						},
 						success : function(response) {
-							var startstr = '<div class="inner-page padd">'
+							//console.log($(response).find('.single-item')[0]);
+							var m_content=$(response).find('.single-item')[0];
+							$('.inner-page').empty().append(m_content);
+							/* var startstr = '<div class="inner-page padd">'
 							var start = response.indexOf(startstr)
 							var startlength = startstr.length
 							var end = response.indexOf(
@@ -403,7 +359,8 @@
 									+ startlength, end + endlength))
 							//alert(m_content)
 							//$("#contentTable").html(m_content)
-							$(".inner-page").html(m_content)
+							$(".inner-page").html(m_content) */
+							
 							//alert(m_content)
 							setReadonly();
 						},

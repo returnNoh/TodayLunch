@@ -35,70 +35,12 @@
 
 <body>
 
-
-	<!-- Shopping cart Modal -->
-	<div class="modal fade" id="shoppingcart1" tabindex="-1" role="dialog"
-		aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Shopping Cart</h4>
-				</div>
-				<div class="modal-body">
-					<!-- Items table -->
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Quantity</th>
-								<th>Price</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><a href="#">Exception Reins Evocative</a></td>
-								<td>2</td>
-								<td>$200</td>
-							</tr>
-							<tr>
-								<td><a href="#">Taut Mayoress Alias Appendicitis</a></td>
-								<td>1</td>
-								<td>$190</td>
-							</tr>
-							<tr>
-								<td><a href="#">Sinter et Molests Perfectionist</a></td>
-								<td>4</td>
-								<td>$99</td>
-							</tr>
-							<tr>
-								<th></th>
-								<th>Total</th>
-								<th>$489</th>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Continue
-						Shopping</button>
-					<button type="button" class="btn btn-info">Checkout</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
-	<!-- Model End -->
-
 	<!-- Page Wrapper -->
 	<div class="wrapper">
 
 		<!-- Header Start -->
 
-		<jsp:include page="../top.jsp"/>
+		<jsp:include page="../top.jsp" />
 
 		<!-- Header End -->
 
@@ -109,7 +51,7 @@
 				<!-- Image -->
 				<img class="img-responsive" src="../img/crown-white.png" alt="" />
 				<!-- Heading -->
-				<h2 class="white">식권 사용 </h2>
+				<h2 class="white">식권 사용</h2>
 				<ol class="breadcrumb">
 					<li><a href="/TodayLunch/index.jsp">메인</a></li>
 					<li><a href="myPage.lunch">마이 페이지</a></li>
@@ -131,80 +73,54 @@
 			<div class="contactus">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-6">
-							<!-- Contact Us content -->
-							<div class="row">
-								<div class="col-md-6 col-sm-6">
-									<!-- Contact content details -->
-									<div class="contact-details">
-										<!-- Heading -->
-										<h4>Location</h4>
-										<!-- Address / Icon -->
-										<i class="fa fa-map-marker br-red"></i> <span>#768, 5th
-											floor, N S Building,<br />Csm Block, Park Road,<br />
-											Bangalore - 234567
-										</span>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6">
-									<!-- Contact content details -->
-									<div class="contact-details">
-										<!-- Heading -->
-										<h4>On-line Order</h4>
-										<!-- Contact Number / Icon -->
-										<i class="fa fa-phone br-green"></i> <span>+91
-											88-88-888888</span>
-										<div class="clearfix"></div>
-										<!-- Email / Icon -->
-										<i class="fa fa-envelope-o br-lblue"></i> <span><a
-											href="#">abc@example.com</a></span>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-							<!--/ Inner row end -->
+						<div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12">
 							<!-- Contact form -->
 							<div class="contact-form">
 								<!-- Heading -->
-								<h3>Contact Form</h3>
+								<h3 style="color: #513629; font-weight: bold">식권 사용</h3>
 								<!-- Form -->
-								<form role="form" method="post"
-									action="/TodayLunch/Mypage_r/sikResult.lunch">
-									<div class="form-group">
-										<!-- Form input -->
+								<!-- <form role="form" method="post"
+									action="/TodayLunch/Mypage_r/sikResult.lunch"> -->
+								<form role="form" method="post">
+									<!-- <div class="form-group">
+										Form input
 										<input class="form-control" name="r_name" type="text"
 											placeholder="세션값 - 식당아이디" />
-									</div>
+									</div> -->
 									<div class="form-group">
 										<!-- Form input -->
 										<input class="form-control" name="p_id" type="text"
-											placeholder="개인아이디" />
+											placeholder="개인아이디" style="margin-top: 10px;" />
 									</div>
 									<div class="form-group">
-										<!-- Form text area -->
-										<textarea class="form-control" name="p_siknum" rows="3"
-											placeholder="식권인증번호"></textarea>
+										<!-- Form input -->
+										<input class="form-control" name="p_siknum" type="password"
+											placeholder="식권인증번호" style="margin-top: 10px; color: #513629" />
 									</div>
 									<!-- Form button -->
-									<button class="btn btn-danger btn-sm" type="submit">Send</button>
+									<button class="btn btn-sm" type="submit"
+										style="margin-top: 20px; background-color: #E7C1BA">사용하기</button>
 									&nbsp;
-									<button class="btn btn-default btn-sm" type="reset">Reset</button>
+									<button class="btn btn-default btn-sm" type="reset"
+										style="margin-top: 20px; background-color: #6C702F; color: #fff">지우기</button>
 								</form>
 							</div>
 							<!--/ Contact form end -->
 						</div>
-						<div class="col-md-6">
+						
+						<div id="plate" class="col-md-5 col-sm-5 col-xs-12">
+						<img class="img-responsive" src="../img/jonathan-pielmayer-388602-unsplash - 복사본.jpg" alt=""
+							 />
+							
+							<!-- Photo by Jonathan Pielmayer on Unsplash -->
 							<!-- Map holder -->
-							<div class="map-container">
-								<!-- Google Map -->
+							<!-- <div class="map-container" style="height:250px;width:300px;top:-100px;z-index:3"> -->
+								<!-- 식권 사용 결과 출력 -->
 								<c:if test="${usesik!=null}">
-
-
-${usesik}
-
-</c:if>
-							</div>
+									<h4 class="text-center" style="color:#ffffff;">${usesik}:)</h4>
+									
+								</c:if>
+							<!-- </div> -->
 						</div>
 					</div>
 				</div>
@@ -214,7 +130,7 @@ ${usesik}
 
 			<!-- Showcase Start -->
 
-			
+
 
 			<!-- Showcase End -->
 
@@ -223,7 +139,7 @@ ${usesik}
 
 		<!-- Footer Start -->
 
-		<jsp:include page="../footer.jsp"/>
+		<jsp:include page="../footer.jsp" />
 
 		<!-- Footer End -->
 
@@ -249,35 +165,18 @@ ${usesik}
 	<script src="../js/custom.js"></script>
 	<!-- JS code for this page -->
 	<script>
-		
+	$(window).load(function() {
+		replaceFont();
+		})
+	
+	$(window).resize(function(){
+		replaceFont();
+	}).resize(); 
+	
+	function replaceFont(){
+		$('#plate>h4').css('margin-top', -1*$('#plate>img').height()/2-$('#plate>h4').height()/2);
+	}
 	</script>
 </body>
 </html>
 
-
-<%-- <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>액션태그 연습</title>
-</head>
-<body>
-
-<form method="post" action="/TodayLunch/sik/sikResult.lunch">
-
-가게이름(나중에는 세션값이용) : <input type="text" size="10" name="r_name"><br>
-개인아이디 : <input type="text" size="10" name="p_id"><br>
-인증번호 : <input type="text" size="10"  name="p_siknum"><br>
-<input type="submit" value="보내기">
-
-</form>
-<br>
-<c:if test="${usesik!=null}">
-
-
-${usesik}
-
-</c:if>
-
-
-</body>
-</html> --%>

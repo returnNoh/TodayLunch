@@ -55,11 +55,11 @@
 <body>
 
 <!--TOP-->
-	<jsp:include page="../top.jsp"></jsp:include>
+	<jsp:include page="../top.jsp"/>
 	
 
 		<!-- Banner Start -->
-		<div class="wrapper">
+		<div class="wrapper" style="background-color:#F2EFE9;">
 		<div class="banner padd">
 			<div class="container">
 				 <img class="img-responsive" src="../img/crown-white.png"
@@ -75,7 +75,7 @@
 		<!--inner-->
 		<div class="inner-page padd">
 			
-				<c:if test="${ p_id==null}">
+				<c:if test="${p_id==null}">
 					<div class="limiter">
 						<div class="container-login100">
 							<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
@@ -146,13 +146,13 @@
 
 	<script src="../vendor_l/countdowntime/countdowntime.js"></script>
 
-	<script src="../js_l/main.js"></script>
-<script type="text/javascript">
+	<!-- <script src="../js_l/main.js"></script> -->
+<script>
 function forget(){
 	
-	window.open("forget_Info.jsp", "post", "left=400,top=220, width=500, height=300",
+	window.open("forget_Info.jsp", "post", "left=400,top=220, width=300, height=300",
 			"toobar=no,menubar=no,status=yes,scrollbars=no");
 	}
-	</script>
+</script>
 </body>
 </html>

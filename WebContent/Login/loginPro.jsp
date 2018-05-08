@@ -35,7 +35,8 @@
 
 <c:if test="${check==true }">
 <c:set var="s_id" value="${requestScope.p_id}" scope="session"></c:set>
-<c:redirect url="/main.lunch"></c:redirect>
+<c:set var="grade" value="${grade}" scope="session"></c:set>
+<c:redirect url="../main.lunch"></c:redirect>
 </c:if>
 
 <c:if test="${check==false }">
@@ -46,7 +47,7 @@
 		</button>
 	</div> -->
 	<!-- Shopping cart Modal(오류 모달) -->
-		<div class="modal fade" id="shoppingcart1" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal fade" id="shoppingcart1" tabindex="-1" role="dialog" aria-hidden="false" >
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">

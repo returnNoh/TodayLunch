@@ -5,7 +5,35 @@ public class SikkwonDTO {
 	private String r_name;
 	private String u_time;
 	private int s_num;
+	private int pageRow;
+	private int pageSize;
+	private int pageNum;
+	private int count;
 	
+	public int getPageNum() {
+		return pageNum;
+	}
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public int getPageRow() {
+		return pageRow;
+	}
+	public void setPageRow(int pageRow) {
+		this.pageRow = pageRow;
+	}
+	public int getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
 	public String getP_id() {
 		return p_id;
 	}

@@ -7,12 +7,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<title>회원탈퇴</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>회원탈퇴</title>
-
 <!-- Styles -->
 <!-- Bootstrap CSS -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -33,71 +31,91 @@
 
 	<div class="wrapper">
 		<!--top-->
-		<jsp:include page="../top.jsp"></jsp:include>
-		<!-- Banner Start -->
-		<div class="inner">
-			<header>
-				<div>
-					<div class="container">
-						<h1 id="bye">Bye My Friend:(</h1>
-						<div class="clearfix"></div>
+		<jsp:include page="../top.jsp"/>
+		<!-- Inner Content -->
+		<div class="inner-page padd">
+			<!-- Nutrition Start -->
+			<div class="nutrition">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4">
+							<!-- Nutrition Item -->
+							<div class="nutrition-item">
+								<!-- Heading -->
+								<h4>BYE MY FRIEND</h4>
+								<!-- Nutrition information table -->
+								<div class="table-responsive" style="border:none;">
+									<table class="table table-bordered">
+										<c:if test="${p==null }">
+											<form role="form" name="delform" method="post">
+												<label for="p_passwd">${p_id} 님 비밀번호를 입력해주세요 </label>
+												<div class="form-group" id="leave_form">
+													<input type="password" name="p_passwd" id="p_passwd"
+														class="form-control" style="border-radius: 20px">
+												</div>
+
+												<div class="col-md-offset-2 col-md-2 col-xs-4">
+													<input type="submit" name="out" id="out" value="submit">
+												</div>
+												<div class="col-md-offset-1 col-md-2 col-xs-4">
+													<input type="button" name="cancel" id="cancel"
+														value="cancel" onclick="history.back()"
+														style="margin-left: 20px">
+												</div>
+											</form>
+										</c:if>
+									</table>
+								</div>
+							</div>
+							<!--/ Nutrition info end  -->
+						</div>
+						<!--/ Column end  -->
 					</div>
 				</div>
-			</header>
-			<!-- Banner End -->
-			<div id="form">
-				<div class="fish" id="fish"></div>
-				<div class="fish" id="fish2"></div>
-				<!--비밀번호가 비어있을때-->
-				<c:if test="${p==null }">
-					<form name="delform" method="post">
-						<div class="group" id="leave_form">
-							<label for="p_passwd">${p_id} 님 비밀번호를 입력해주세요 </label> 
-							<input type="password" name="p_passwd" id="p_passwd"> <input
-								type="button" onclick="delcheck()" name="out" id="out"
-								value="submit"> <input type="button"
-								onclick="history.back()" name="cancel" id="cancel"
-								value="cancel">
+			</div>
+			<c:if test="${p==0 }">
+				<!-- Shopping cart Modal(오류 모달) -->
+				<div class="modal" id="shoppingcart1" tabindex="-1" role="dialog"
+					aria-hidden="false"
+					style="display: none; padding-right: 17px; z-index: 1050;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">Error!</h4>
+							</div>
+							<div class="modal-body">
+
+								<table class="table table-striped">
+									<p>Please check your ID or Password again</p>
+								</table>
+							</div>
+							<div class="modal-footer">
+								<button type="button" id="close" class="btn btn-default"
+									data-dismiss="modal"
+									onclick="location.href='Mypage_p/deletePerson.lunch'">OK</button>
+							</div>
 						</div>
-					</form>
-				</c:if>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- .modal -->
+				<!--Model End  -->
+
+				<!-- 		<script>
+  		alert("비밀번호가 맞지않습니다.")
+  		location.href="TodayLunchSpring2/Mypage_p/deletePerson.lunch";
+  	</script> -->
+			</c:if>
+
+			<!--footer-->
+			<div>
+				<jsp:include page="../footer.jsp"></jsp:include>
 			</div>
 		</div>
-
-		<c:if test="${p==0 }">
-			<!-- Central Modal Small -->
-			<div class="modal fade" id="centralModalSm" tabindex="-1"
-				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-sm" role="alert">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title" id="exampleModalLabel">Wrong
-								PASSWORD</h1>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<h3>비밀번호를 다시 확인해주세요</h3>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</c:if>
-		<!-- 	<script>
-  		alert("비밀번호가 맞지않습니다.")
-  		location.href="TodayLunch/Mypage_p/deletePerson.lunch";
-  	</script> -->
-
-		<!--footer-->
-
-		<jsp:include page="../footer.jsp"></jsp:include>
-
+		<!-- inner-page end -->
 	</div>
 	<!--wrapper end-->
 	<span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span>
@@ -120,20 +138,34 @@
 	<!-- Custom JS -->
 	<script src="../js/custom.js"></script>
 	<script>
-		function delcheck() {
-			var p_passwd = $("#p_passwd").val();
-			if (p_passwd == "") {
-				//var mem_id=document.getElementById("ducheck"); -> <td> 정보
-				alert("mem_id"); //[object~]
-				//$("#p_passwd").innerHTML = "<font color='red'>비밀번호를 입력해주세요</font>";
-				$("#p_passwd").attr("placeholder", "비밀번호를 입력해주세요.")
-				$("#p_passwd").focus();
-				return false;
-			}
-		}
-		$(function() {
-			//$('#centralModalSm').modal();
+		/* function delcheck(p_passwd) {
+			if (p_passwd == "") {  */
+		//var mem_id=document.getElementById("ducheck"); -> <td> 정보
+		/*var p_passwd = $("p_passwd");
+		 alert(mem_id); //[object~]
+		$("p_passwd").innerHTML = "<font color='red'>비밀번호를 입력해주세요</font>";
+		$("p_passwd").focus(); */
+		/* 	$('#centralModalSm').modal(); */
+		/* 	return; */
+		/* return false; */
+
+		//$('#centralModalSm').modal();
+		$('#shoppingcart1').modal();
+		$('#close').click(function() {
+			window.location.href = '/TodayLunch/Mypage_p/deletePerson.lunch';
 		})
+
+		/* $(function(){
+			$('#out').click(function(){
+				var passwd=$('#p_passwd')
+				if(passwd=="" || passwd==0){
+					$('#shoppingcart1').modal();
+					return;
+				}
+			})
+		})  */
+		/* 	}
+		}) */
 	</script>
 </body>
 </html>

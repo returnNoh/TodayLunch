@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #777777;
+  color:#513629;
 }
 a {
   color: #777777;
@@ -29,8 +29,11 @@ a:hover {
 /**********************/
 /* Text color classes */
 /**********************/
-.white {
+/* .white {
   color: #ffffff !important;
+} */
+.white {
+  color: #F2EFE9 !important;
 }
 .grey {
   color: #eeeeee !important;
@@ -104,6 +107,8 @@ a:hover {
 .br-brown {
   background-color: #d08166 !important;
 }
+
+
 /************************/
 /* Button color classes */
 /************************/
@@ -276,17 +281,19 @@ a:hover {
   color: #777777;
 }
 .pagination li a:hover {
-  background-color: #f75353;
-  border-color: #f75353;
-  color: #ffffff;
+  background-color: #fff8e7;
+  border-color: #fff8e7;
+  color: #513629;
 }
 .pagination li.active a {
-  background-color: #f75353;
-  border-color: #f75353;
+  background-color: #ff91a4;
+  border-color: #ccccff;
+  color:#513629;
 }
 .pagination li.active a:hover {
-  background-color: #f75353;
-  border-color: #f75353;
+  background-color: #ccccff;
+  border-color: #ccccff ;
+  color:#513629;
 }
 .pagination li.active a:focus {
   background-color: #f75353;
@@ -319,18 +326,18 @@ a:hover {
 /* Nav Tabs  */
 /*************/
 .nav-tabs li a:hover {
-  background: #f75353;
+  background: #E7C1BA;
   color: #ffffff;
-  border-color: #f75353;
+  border-color: #ccccff ;
 }
 .nav-tabs li.active a {
-  background-color: #f75353;
-  border-color: #f75353;
+  background-color: #ff6961;
+  border-color: #ff6961;
   color: #ffffff;
 }
 .nav-tabs li.active a:hover {
-  background-color: #f75353;
-  border-color: #f75353;
+  background-color: #E7C1BA;
+  border-color: #ccccff ;
   color: #ffffff;
 }
 /*************/
@@ -417,11 +424,17 @@ a:hover {
 /****************/
 /* Drop Down Menu */
 /****************/
-.dropdown-menu {
+/* .dropdown-menu {
   border-top: 3px solid #f75353 !important;
 }
 .dropdown-menu:before {
   border-bottom-color: #f75353 !important;
+} */
+.dropdown-menu {
+  border-top: 3px solid #E7C1BA !important;
+}
+.dropdown-menu:before {
+  border-bottom-color: #E7C1BA !important;
 }
 /*
  * Cart drop down link color
@@ -467,7 +480,7 @@ a:hover {
   color: #f75353;
 }
 .inner-page .shopping .shopping-item:hover {
-  border-color: #f75353;
+  border-color: #E7C1BA;
 }
 /****************/
 /* Blog Page */
@@ -495,5 +508,5 @@ a:hover {
 /* Scroll to top */
 /****************/
 .totop a i {
-  background: #f75353;
+  background:#A22B2A ;
 }

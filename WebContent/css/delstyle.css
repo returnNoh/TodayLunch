@@ -74,7 +74,7 @@ header{
 }
 form{
 	margin: 0 auto;
-	width: 500px;
+	width: auto;
 	padding-top: 40px;
 	color: white;
 	position: relative;	
@@ -83,7 +83,7 @@ label, input{
 	display: block;	
 }
 input{
-	width: 500px;	
+	width: auto;	
 	border: none;
 	border-radius: 20px;
 	outline: none;
@@ -105,7 +105,7 @@ input[type="text"]:focus{
 	border: solid 3px #77bde0;	
 }
 
-input[type="button"]{
+input[type="button"], input[type="submit"]{
 	background-color: #F90;
 	color: white;
 	height: 50px;

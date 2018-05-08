@@ -1,15 +1,24 @@
 package beans;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import DBConnect.DBConnectionMgr;
+public interface AdminDAO {
 
-public class AdminDAO {
-
+public int getPeopleCount(String type);
+public List getPeople(AdminDTO dto);
+public List getNotice();
+public void writeNotice(AdminDTO dto);
+public void updateNotice(Map map);
+public void deleteNotice(String no_num);
+public int getSikInfo();
+public List getSikInfoList(int start);
+	
+	/*
+	
+	
+	
+	
 	
 private DBConnectionMgr pool;
 	
@@ -54,8 +63,6 @@ private DBConnectionMgr pool;
 	
 public HashMap pageList(String pageNum,int count) {
 		
-		
-		
 		//페이징 처리 결과를 저장할 HashMap객체 생성
 		HashMap<String,Integer> pglist = new HashMap<String,Integer>();
 		//==== 페이징 처리 계산부분 복사===================================
@@ -90,18 +97,12 @@ public HashMap pageList(String pageNum,int count) {
 		if(currentPage%blockSize!=0){ // 1~9 , 11~19 , 21~22 
 			startPage = currentPage/blockSize*blockSize+1;
 		}else{ //10,20,30,40
-			
 			startPage=((currentPage/blockSize)-1)*blockSize+1;
-			
 		}
 		int endPage = startPage+blockSize-1;
 		if(endPage>pageCount)	endPage=pageCount;
 		
 		//-- ListAction(pageNun,count) => pageList를 넘기고,, -> ListAction -> list.jsp
-		
-		
-		
-		
 		
 		pglist.put("currentPage", currentPage);
 		
@@ -119,8 +120,6 @@ public HashMap pageList(String pageNum,int count) {
 		
 		pglist.put("beginPerPage", beginPerPage);
 
-
-		
 		//number=count-(currentPage-1)*pageSize;
 		//request.setAttribute(키명,저장할값)// 이용해서 값 공유
 	    // beginPerPage  계산  (페이지별게시물 번호 제일 높은것)
@@ -130,7 +129,7 @@ public HashMap pageList(String pageNum,int count) {
 	}
 
 
-public ArrayList<MemberDTO> getPeople(String type,int pageRow,int pageSize){
+public ArrayList<MemberDTO> getPeople(String type, int pageRow, int pageSize){
 	
 	Connection con = null;
 	PreparedStatement pstmt = null;
@@ -190,7 +189,7 @@ public ArrayList<MemberDTO> getRest(String type,int pageRow,int pageSize){
 		
 		
 	}catch(Exception e) {
-		System.out.println("getRest 오류");
+		System.out.println("getPeople 오류");
 	}
 	
 	
@@ -223,7 +222,7 @@ public ArrayList<NoticeDTO> getNotice(){
 		
 		
 	}catch(Exception e) {
-		System.out.println("getNotice 오류");
+		System.out.println("getPeople 오류");
 	}
 	
 	
@@ -248,7 +247,7 @@ public void writeNotice(String no_content) {
 		
 		
 	}catch(Exception e) {
-		System.out.println("writeNotice 실패"+e);
+		System.out.println("getArticleCount 실패"+e);
 	}finally {
 		pool.freeConnection(con,pstmt);
 	}
@@ -273,7 +272,7 @@ public void updateNotice(String no_num,String no_content) {
 		
 		
 	}catch(Exception e) {
-		System.out.println("updateNotice 실패"+e);
+		System.out.println("getArticleCount 실패"+e);
 	}finally {
 		pool.freeConnection(con,pstmt);
 	}
@@ -285,7 +284,7 @@ public void deleteNotice(String no_num) {
 	PreparedStatement pstmt = null;
 	
 	
-	String sql = "delete from notice where no_num="+no_num;
+	String sql = "delete notice where="+no_num;
 	System.out.println(sql);
 	
 	try {
@@ -297,11 +296,11 @@ public void deleteNotice(String no_num) {
 		
 		
 	}catch(Exception e) {
-		System.out.println("DeleteNotice 실패"+e);
+		System.out.println("getArticleCount 실패"+e);
 	}finally {
 		pool.freeConnection(con,pstmt);
 	}
 }
-
+*/
 	
 }

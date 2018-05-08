@@ -12,20 +12,19 @@
 </head>
 <body>
   메뉴입력 처리 페이지
-  <c:if test="${check}">
+  <c:if test="${check>0}">
   <script type="text/javascript">
   alert("수정되었습니다.")
-  location.href="/TodayLunch/Mypage_r/updateMenu.lunch"
-  //location.href="/TodayLunch/Mypage_r/updateMenu.lunch?date="+${dateTime}
+  location.href="/TodayLunch/Mypage_r/updateMenu.lunch?date=${dateTime}"
   </script>
   </c:if>
   
-  <c:if test="${!check}">
+  <c:if test="${check eq null || check==0}">
   <script type="text/javascript">
   alert("수정에 실패했습니다.\n다시 시도해주세요.")
   history.back();
   </script>
-  </c:if>
+  </c:if>  
   
 </body>
 </html>

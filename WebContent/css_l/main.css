@@ -162,10 +162,10 @@ iframe {
   width: 100%;
   margin: 0 auto;
 }
-
+/* min-height: 100vh-> 50vh 로 수정*/
 .container-login100 {
   width: 100%;  
-  min-height: 100vh;
+  min-height: 50vh; 
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -194,14 +194,15 @@ iframe {
 .login100-form {
   width: 100%;
 }
-
+/* color: #333333; */
 .login100-form-title {
   display: block;
   font-family: Poppins-Bold;
-  font-size: 39px;
-  color: #333333;
+  font-size: 42px;
+  color: #513629;
   line-height: 1.2;
   text-align: center;
+  font-weight: bold;
 }
 
 
@@ -217,10 +218,11 @@ iframe {
 
 .label-input100 {
   font-family: Poppins-Regular;
-  font-size: 14px;
-  color: #333333;
+  font-size: 16px;
+  color: #513629;
   line-height: 1.5;
   padding-left: 7px;
+  font-weight: bold;
 }
 
 .input100 {
@@ -329,17 +331,17 @@ iframe {
   -o-box-shadow: 0 5px 30px 0px rgba(3, 216, 222, 0.2);
   -ms-box-shadow: 0 5px 30px 0px rgba(3, 216, 222, 0.2);
 }
-
+/* (right, #ccccff 0%, #ff99cc 100%); */
 .login100-form-bgbtn {
   position: absolute;
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #a64bf4;
-  background: -webkit-linear-gradient(right, #ccccff 0%, #ff99cc 100%);
-  background: -o-linear-gradient(right, #ccccff 0%, #ff99cc 100%);
-  background: -moz-linear-gradient(right, #ccccff 0%, #ff99cc 100%);
-  background: linear-gradient(right, #ccccff 0%, #ff99cc 100%);
+  background: #6C702F;
+  background: -webkit-linear-gradient(right, #E7C1BA 40%, #F5E95D  80%);
+  background: -o-linear-gradient(right, #E7C1BA 40%, #F5E95D  80%);
+  background: -moz-linear-gradient(right, #E7C1BA 40%, #F5E95D  80%);
+  background: linear-gradient(right, #E7C1BA 40%, #F5E95D  80%);
   top: 0;
   left: -100%;
 
@@ -349,12 +351,14 @@ iframe {
   transition: all 0.4s;
 }
 
+/* color: #fff; -> */
 .login100-form-btn {
   font-family: Poppins-Medium;
   font-size: 16px;
-  color: #fff;
+  color: #513629;
   line-height: 1.2;
   text-transform: uppercase;
+   font-weight: bold;
 
   display: -webkit-box;
   display: -webkit-flex;

@@ -41,140 +41,7 @@
 
 		<!-- Header Start -->
 
-		<div class="header">
-			<div class="container">
-				<!-- Header top area content -->
-				<div class="header-top">
-					<div class="row">
-
-						<div class="col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8">
-							<!-- Header top right content search box -->
-							<div class=" header-search">
-								<form class="form" role="form">
-									<div class="input-group">
-										<input type="text" class="form-control"
-											placeholder="Search..."> <span
-											class="input-group-btn">
-											<button class="btn btn-default" type="button" style="height:32px">
-												<i class="fa fa-search"></i>
-											</button>
-										</span>
-									</div>
-									
-								</form>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-5">
-						<!-- Link -->
-						<a href="/TodayLunch/Mypage_p/myPage.lunch"> <!-- Logo area -->
-							<div class="logo">
-								<img class="img-responsive" src="../img/logo.png" alt="" />
-								<!-- Heading -->
-								<h1>오늘의 점심</h1>
-								<!-- Paragraph -->
-								<p>강남역 주변의 점심 뷔페 메뉴</p>
-							</div>
-						</a>
-					</div>
-			
-					<div class="col-md-8 col-sm-7">
-						<!-- Navigation -->
-						<nav class="navbar navbar-default navbar-right" role="navigation">
-						<div class="container-fluid">
-							<!-- Brand and toggle get grouped for better mobile display -->
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle"
-									data-toggle="collapse"
-									data-target="#bs-example-navbar-collapse-1">
-									<span class="sr-only">Toggle navigation</span> <span
-										class="icon-bar"></span> <span class="icon-bar"></span> <span
-										class="icon-bar"></span>
-								</button>
-							</div>
-
-							<!-- Collect the nav links, forms, and other content for toggling -->
-							<div class="collapse navbar-collapse"
-								id="bs-example-navbar-collapse-1">
-								<ul class="nav navbar-nav">
-									<li><a href="/TodayLunch/main.lunch"><img
-											src="../img/nav-menu/nav1.jpg" class="img-responsive" alt="" />
-											Home</a></li>
-									<li class="dropdown hidden-xs"><a href="#"
-										class="dropdown-toggle" data-toggle="dropdown"><img
-											src="../img/nav-menu/nav2.jpg" class="img-responsive" alt="" />
-											MyPage <b class="caret"></b></a>
-										<ul class="dropdown-menu dropdown-md">
-											<li>
-												<div class="row">
-													<div class="col-md-4 col-sm-4">
-														<!-- Menu Item -->
-														<div class="menu-item">
-															<!-- Heading -->
-															<h3>식권 구매</h3>
-															<!-- Image -->
-															<img src="../img/dish/dish1.jpg" class="img-responsive"
-																alt="" width="150px" height="150px" />
-															<!-- Button -->
-															<a href="/TodayLunch/Mypage_p/buySik.lunch" class="btn btn-danger btn-xs">Buy</a>
-														</div>
-													</div>
-													
-													<!--회원 수정-->
-													<div class="col-md-4 col-sm-4">
-														<!-- Menu Item -->
-														<div class="menu-item">
-															<!-- Heading -->
-															<h3>회원 수정</h3>
-															<!-- Image -->
-															<img src="../img/dish/dish2.jpg" class="img-responsive"
-																alt="" width="150px" height="150px" " />
-															<!-- Button -->
-															<a href="/TodayLunch/Mypage_p/updateInfo.lunch" class="btn btn-danger btn-xs">Go</a>
-														</div>
-													</div>
-													<div class="col-md-4 col-sm-4">
-														<!-- Menu Item -->
-														<div class="menu-item">
-															<!-- Heading -->
-															<h3>사용 내역</h3>
-															<!-- Image -->
-															<img src="../img/dish/dish3.jpg" class="img-responsive"
-																alt="" width="150px" height="150px" "/>
-															<!-- Button -->
-															<a href="/TodayLunch/Mypage_p/sikInfo.lunch" class="btn btn-danger btn-xs">Check</a>
-														</div>
-													</div>
-												</div>
-											</li>
-										</ul></li>
-									<li class="dropdown visible-xs"><a href="#"
-										class="dropdown-toggle" data-toggle="dropdown"> Page <b
-											class="caret"></b></a>
-										<ul class="dropdown-menu">
-											<li><a href="/TodayLunch/Mypage_p/buySik.lunch">Buy</a></li>
-											<li><a href="/TodayLunch/Mypage_p/sikInfo.lunch">Check</a></li>
-											<li><a href="/TodayLunch/Mypage_p/updateInfo.lunch">Personal</a></li>
-										</ul></li>
-									<li><a href="index.html"><img
-											src="../img/nav-menu/nav1.jpg" class="img-responsive" alt="" />
-											Shop List</a></li>
-									<li><a href="/TodayLunch/Login/logout.lunch"><img
-											src="../img/nav-menu/nav1.jpg" class="img-responsive" alt="" />
-											Logout</a></li>
-								</ul>
-							</div>
-							<!-- /.navbar-collapse -->
-						</div>
-						<!-- /.container-fluid --> </nav>
-					</div>
-				</div>
-			</div>
-			<!-- / .container -->
-		</div>
+		<jsp:include page="../top.jsp"/>
 
 		<!-- Header End -->
 
@@ -214,9 +81,9 @@
 								<div class="shopping-item">
 									<!-- Image -->
 									<a href="/TodayLunch/Mypage_p/buySik.lunch"><img class="img-responsive"
-										src="../img/shopping/shop1.jpg" alt="" /></a>
+										src="../img/shopping/mypage1.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
-									<h4 class="center">
+									<h4 class="center" style="color:#513629;font-weight:bold">
 										<a href="/TodayLunch/Mypage_p/buySik.lunch">식권 구매</a>
 									</h4>
 									<!-- <span class="item-price pull-right"></span> -->
@@ -234,9 +101,9 @@
 								<div class="shopping-item">
 									<!-- Image -->
 									<a href="/TodayLunch/Mypage_p/sikInfo.lunch"><img class="img-responsive"
-										src="../img/shopping/shop1.jpg" alt="" /></a>
+										src="../img/shopping/mypage3.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
-									<h4 class="center">
+									<h4 class="center" style="color:#513629;font-weight:bold">
 										<a href="/TodayLunch/Mypage_p/sikInfo.lunch">사용 내역</a>
 									</h4>
 									<!-- <span class="item-price pull-right"></span> -->
@@ -251,14 +118,14 @@
 							<!-- Showcase End -->				
 
 							<!--회원수정-->
-							<div class="col-md-offset-3 col-md-3  col-sm-4">
+							<div class="col-md-offset-3 col-md-3 col-sm-4 col-sm-offset-2">
 								<!-- Shopping items -->
 								<div class="shopping-item">
 									<!-- Image -->
 									<a href="/TodayLunch/Mypage_p/updateInfo.lunch"><img class="img-responsive"
-										src="../img/shopping/shop1.jpg" alt="" /></a>
+										src="../img/shopping/mypage4.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
-									<h4 class="center">
+									<h4 class="center" style="color:#513629;font-weight:bold">
 										<a href="/TodayLunch/Mypage_p/updateInfo.lunch">회원 수정</a>
 									</h4>
 									<!-- <span class="item-price pull-right"></span> -->
@@ -277,9 +144,9 @@
 								<div class="shopping-item">
 									<!-- Image -->
 									<a href="/TodayLunch/Mypage_p/deletePerson.lunch"><img class="img-responsive"
-										src="../img/shopping/shop1.jpg" alt="" /></a>
+										src="../img/shopping/mypage5.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
-									<h4 class="center">
+									<h4 class="center" style="color:#513629;font-weight:bold">
 										<a href="/TodayLunch/Mypage_p/deletePerson.lunch">회원 탈퇴</a>
 									</h4>
 									<!-- <span class="item-price pull-right"></span> -->
@@ -297,82 +164,12 @@
 				<!-- / Inner Page Content End -->
 
 				<!-- Footer Start -->
-
-				<div class="footer padd">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-offset-3 col-md-4 col-sm-6">
-								<!-- Footer widget -->
-								<div class="footer-widget">
-									<!-- Logo area -->
-									<div class="logo">
-										<img class="img-responsive" src="../img/logo.png" alt="" />
-										<!-- Heading -->
-										<h1>오늘의 점심</h1>
-									</div>
-									<!-- Paragraph -->
-										<div>
-										<h2>제작:개신(개발의 신)</h2>
-										<ul>
-											<li>김지혜</li>
-											<li>노인욱</li>
-											<li>문희경</li>
-											<li>이고우나</li>
-											<li>한희원</li>
-										</ul>
-									</div>
-									<hr />
-									<!-- Heading -->
-									<h6>제작 기간</h6>
-									<!-- Images -->
-									<p>2018.02.28 ~ 2018.03.30</p>
-								</div>
-								
-							</div>
-
-							<div class="col-md-4 col-sm-6">
-								<!-- Footer widget -->
-								<div class="footer-widget">
-									<!-- Heading -->
-									<h4>제작 장소</h4>
-									<div class="contact-details">
-										<!-- Address / Icon -->
-										<i class="fa fa-map-marker br-red"></i> 
-										<span> KIC 캠퍼스(강남점)</span>
-										<div class="clearfix"></div>
-										<!-- Contact Number / Icon -->
-										<i class="fa fa-phone br-green"></i> 
-										<span>학원 전화번호</span>
-										<div class="clearfix"></div>
-										<!-- Email / Icon -->
-										<i class="fa fa-envelope-o br-lblue"></i> <span><a
-											href="#">학원 이메일</a></span>
-										<div class="clearfix"></div>
-									</div>
-									<!-- Social media icon -->
-									<div class="social">
-										<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-										<a href="#" class="google-plus"><i
-											class="fa fa-google-plus"></i></a> <a href="#" class="twitter"><i
-											class="fa fa-twitter"></i></a> <a href="#" class="pinterest"><i
-											class="fa fa-pinterest"></i></a>
-									</div>
-								</div>
-								<!--/ Footer widget end -->
-							</div>
-						</div>
-						</div>
-						<!-- Copyright -->
-						<div class="footer-copyright">
-							<!-- Paragraph -->
-							<p>
-								&copy; Copyright 2018 <a href="#">개신</a>
-							</p>
-						</div>
-					</div>
+				<jsp:include page="../footer.jsp"/>
+				<!-- Footer End -->
+				
 				</div>
 
-				<!-- Footer End -->
+				
 
 			</div>
 			<!-- / Wrapper End -->

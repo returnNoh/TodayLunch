@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
- <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
- 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,7 +40,7 @@
 
 		<!-- Header Start -->
 
-		<jsp:include page="../top.jsp"/>
+		<jsp:include page="../top.jsp" />
 
 		<!-- Header End -->
 
@@ -79,10 +79,10 @@
 								<!-- Shopping items -->
 								<div class="shopping-item">
 									<!-- Image -->
-									<a href="/TodayLunch/Mypage_r/useSik.lunch"><img class="img-responsive"
-										src="../img/shopping/shop2.jpg" alt="" /></a>
+									<a href="/TodayLunch/Mypage_r/useSik.lunch"><img
+										class="img-responsive" src="../img/shopping/mypage4.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
-									<h4 class="center">
+									<h4 class="center" style="color:#513629;font-weight:bold">
 										<a href="/TodayLunch/Mypage_r/useSik.lunch">식권 사용</a>
 									</h4>
 									<!-- <span class="item-price pull-right"></span> -->
@@ -90,7 +90,8 @@
 
 									<!-- Buy now button -->
 									<div class="visible-xs">
-										<a class="btn btn-danger btn-sm" href="/TodayLunch/Mypage_r/useSik.lunch">Use Now</a>
+										<a class="btn btn-danger btn-sm"
+											href="/TodayLunch/Mypage_r/useSik.lunch">Use Now</a>
 									</div>
 								</div>
 							</div>
@@ -99,32 +100,33 @@
 								<!-- Shopping items -->
 								<div class="shopping-item">
 									<!-- Image -->
-									<a href="/TodayLunch/Mypage_r/sikInfo.lunch"><img class="img-responsive"
-										src="../img/shopping/shop2.jpg" alt="" /></a>
+									<a href="/TodayLunch/Mypage_r/sikInfo.lunch"><img
+										class="img-responsive" src="../img/shopping/mypage2.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
-									<h4 class="center">
-										<a href="/TodayLunch/Mypage_r/sikInfo.lunch">식권 사용 내역</a>
+									<h4 class="center" style="color:#513629;font-weight:bold">
+										<a href="/TodayLunch/Mypage_r/sikInfo.lunch">식권 매출 내역</a>
 									</h4>
 									<!-- <span class="item-price pull-right"></span> -->
 									<div class="clearfix"></div>
 
 									<!-- Buy now button -->
 									<div class="visible-xs">
-										<a class="btn btn-danger btn-sm" href="/TodayLunch/Mypage_r/sikInfo.lunch">Check Now</a>
+										<a class="btn btn-danger btn-sm"
+											href="/TodayLunch/Mypage_r/sikInfo.lunch">Check Now</a>
 									</div>
 								</div>
 							</div>
-							<!-- Showcase End -->				
+							<!-- Showcase End -->
 
 							<!--메뉴 입력-->
 							<div class="col-md-offset-3 col-md-3  col-sm-4 col-sm-offset-2">
 								<!-- Shopping items -->
 								<div class="shopping-item">
 									<!-- Image -->
-									<a href="/TodayLunch/Mypage_r/updateMenu.lunch"><img class="img-responsive"
-										src="../img/shopping/shop2.jpg" alt="" /></a>
+									<a href="/TodayLunch/Mypage_r/updateMenu.lunch"><img
+										class="img-responsive" src="../img/shopping/mypage1.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
-									<h4 class="center">
+									<h4 class="center" style="color:#513629;font-weight:bold">
 										<a href="/TodayLunch/Mypage_r/updateMenu.lunch">메뉴 편집</a>
 									</h4>
 									<!-- <span class="item-price pull-right"></span> -->
@@ -132,20 +134,21 @@
 
 									<!-- Buy now button -->
 									<div class="visible-xs">
-										<a class="btn btn-danger btn-sm" href="/TodayLunch/Mypage_r/updateMenu.lunch">EDIT MENU</a>
+										<a class="btn btn-danger btn-sm"
+											href="/TodayLunch/Mypage_r/updateMenu.lunch">Edit Menu</a>
 									</div>
 								</div>
 							</div>
-							
+
 							<!--회원 수정-->
 							<div class=" col-md-3  col-sm-4">
 								<!-- Shopping items -->
 								<div class="shopping-item">
 									<!-- Image -->
-									<a href="/TodayLunch/Mypage_r/updateInfo.lunch"><img class="img-responsive"
-										src="../img/shopping/shop2.jpg" alt="" /></a>
+									<a href="/TodayLunch/Mypage_r/updateInfo.lunch"><img
+										class="img-responsive" src="../img/shopping/mypage6.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
-									<h4 class="center">
+									<h4 class="center" style="color:#513629;font-weight:bold">
 										<a href="/TodayLunch/Mypage_r/updateInfo.lunch">회원 수정</a>
 									</h4>
 									<!-- <span class="item-price pull-right"></span> -->
@@ -153,7 +156,9 @@
 
 									<!-- Buy now button -->
 									<div class="visible-xs">
-										<a class="btn btn-danger btn-sm" href="/TodayLunch/Mypage_r/updateInfo.lunch">UPDATE PROFILE</a>
+										<a class="btn btn-danger btn-sm"
+											href="/TodayLunch/Mypage_r/updateInfo.lunch">Update
+											Profile</a>
 									</div>
 								</div>
 							</div>
@@ -164,34 +169,32 @@
 
 				<!-- Footer Start -->
 
-				<jsp:include page="../footer.jsp"/>
+				<jsp:include page="../footer.jsp" />
 
 				<!-- Footer End -->
 
 			</div>
 			<!-- / Wrapper End -->
-</div>
+		</div>
 
-			<!-- Scroll to top -->
-			<span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span>
-
-
-
-			<!-- Javascript files -->
-			<!-- jQuery -->
-			<script src="../js/jquery.js"></script>
-			<!-- Bootstrap JS -->
-			<script src="../js/bootstrap.min.js"></script>
-			<!-- Pretty Photo JS -->
-			<script src="../js/jquery.prettyPhoto.js"></script>
-			<!-- Respond JS for IE8 -->
-			<script src="../js/respond.min.js"></script>
-			<!-- HTML5 Support for IE -->
-			<script src="../js/html5shiv.js"></script>
-			<!-- Custom JS -->
-			<script src="../js/custom.js"></script>
+		<!-- Scroll to top -->
+		<span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span>
 
 
+
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script src="../js/jquery.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="../js/bootstrap.min.js"></script>
+		<!-- Pretty Photo JS -->
+		<script src="../js/jquery.prettyPhoto.js"></script>
+		<!-- Respond JS for IE8 -->
+		<script src="../js/respond.min.js"></script>
+		<!-- HTML5 Support for IE -->
+		<script src="../js/html5shiv.js"></script>
+		<!-- Custom JS -->
+		<script src="../js/custom.js"></script>
 </body>
 </html>
 

@@ -50,9 +50,10 @@
 				<!-- Image -->
 				<img class="img-responsive" src="../img/crown-white.png" alt="" />
 				<!-- Heading -->
-				<h2 class="white">Admin</h2>
+				<h2 class="white">Admin - Notice</h2>
 				<ol class="breadcrumb">
-					<li><a href="/TodayLunch/main.lunch">Home</a></li>
+					<li><a href="/TodayLunch/main.lunch">HOME</a></li>
+					<li><a href="myPage.lunch">MY PAGE</a></li>
 				</ol>
 				<div class="clearfix"></div>
 			</div>
@@ -72,26 +73,27 @@
 					<!-- Shopping items content -->
 					<div class="shopping-content">
 						<div class="row">
-
+						
 							
-								<c:forEach var="list" items="${list}">
-<tr>
-<td>${list.no_num}</td>
-<td><a href="noticeUpdate.lunch?no_num=${list.no_num}">${list.no_content}<!-- </a> --></td>
-<td>${list.no_time}</td>
-<td><a href="noticeDelete.lunch?no_num=${list.no_num}">삭제</a></td>
-</tr>
-<br>
-</c:forEach>
+<table class="table table-striped">
+	<c:forEach var="list" items="${list}">
+		<tr>
+			<td>${list.no_num}</td>
+			<td id="content${list.no_num}"><a style="cursor:pointer" onclick="modify(${list.no_num})">${list.no_content}</a></td>
+			<td>${list.no_time}</td>
+			<td><a href="noticeDelete.lunch?no_num=${list.no_num}">삭제</a></td>
+		</tr>
+	</c:forEach>
+</table>
 
 
 
 
-<form method="post" action="/TodayLunch/Admin/notichWrite.lunch">
+<form action="notichWrite.lunch">
 <input type="textarea" name="no_content">
 <input type="submit" value="신규 공지사항 작성">
 </form>
-							${result}
+							
 
 
 							<!-- Showcase End -->
@@ -138,33 +140,39 @@
 		
 		</script>
 	
+	
+	<script>
+		var content;
+		var state = false;
+		var num;
+	function modify(ind){
+			
+			var setting = '<input type="text" id="no_content"><input type="button" value="수정" onclick="sub('+ind+')"><input type="button" value="취소" onclick="cancle()">'
+
+			if(state==false){
+				num = '#content'+ind;
+				state=true;
+				content = $(num).html()
+		$(num).html(setting);
+		return false;
+			}
+	}
+	function cancle(){
+		state=false;
+		$(num).html(content)
+	}
+	function sub(ind){
+		var content = $('#no_content').val()
+		if(content==""){alert('빈문자열은 안됩니다'); return}
+		$.ajax({
+			url:"noticeUpdate.lunch",
+			data:{"no_num":ind,"no_content":content},
+			success:function(){
+				window.location.reload();
+			}
+		})
+	}
+	</script>
+	
 </body>
 </html>
-<%-- <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>액션태그 연습</title>
-</head>
-<body>
-
-<c:forEach var="list" items="${list}">
-<tr>
-<td>${list.no_num}</td>
-<td><a href="updateNotice.lunch?no_num=${list.no_num}">${list.no_content}<!-- </a> --></td>
-<td>${list.no_time}</td>
-<td><a href="deleteNotice.lunch?no_num=${list.no_num}">삭제</a></td>
-</tr>
-<br>
-</c:forEach>
-
-
-
-
-<form>
-<input type="textarea" name="no_content">
-<input type="submit" value="신규 공지사항 작성">
-</form>
-
-
-</body>
-</html> --%>

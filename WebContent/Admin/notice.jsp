@@ -10,29 +10,15 @@
 <title>공지사항이돠</title>
 </head>
 <body>
+
+<c:forEach var="list" items="${list}">
 <tr>
-<td>이게 공지번호입니다</td>
-<td>아마 이게 내용이구요</td>
-<td>날짜</td>
+<td>${list.no_num}</td>
+<td>${list.no_content}</td>
+<td>${list.no_time}</td>
 </tr>
-<%ArrayList list = new AdminDAO().getNotice(); 
-if(list.size()>0){
-	NoticeDTO dto;
-	Iterator it = list.iterator();
-		while(it.hasNext()){
-			dto=(NoticeDTO)it.next();
-%>
+</c:forEach>
 
-<tr>
-<td><%=dto.getNo_num()%></td>
-<td><%=dto.getNo_content()%></td>
-<td><%=dto.getNo_time()%></td>
-</tr>
-
-
-
-
-<%}} %>
 
 </body>
 </html>

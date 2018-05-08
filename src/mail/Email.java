@@ -1,29 +1,33 @@
 package mail;
 
-import javax.mail.Transport;
-import javax.mail.Message;
+import java.util.Properties;
+
 import javax.mail.Address;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.mail.Session;
-import mail.SMTPAuthenticatior;
-import javax.mail.Authenticator;
-import java.util.Properties;
+
+import beans.ForgetInfoDAO;
 
 public class Email {
 		
 	
-	public void EmailSubmit(String email,String id) {
+	
+	public void EmailSubmit(String email,String id,String passwd) {
 		
 		//String from = request.getParameter("from");
 		String from = "todaylunchtest@gmail.com"; // 보내는이 // 고정임
 		String to = email;//request.getParameter("email"); // 받는사람 // 전달받아야 할 값 
 		//String subject = request.getParameter("subject");
-		String subject = "TodayLunch 회원가입 인증 이메일입니다"; //제목
+		String subject = "TodayLunch 비밀번호 찾기 결과입니다."; //제목
 		//String content = request.getParameter("content");
 		//String content = "<a href='http://localhost:8080/TodayLunch/register/emailCheck?p_id="+p_id+"&p_siknum="+p_siknum+"'>인증 확인 링크</a> 링크를 눌러 인증을 완료하여주세요.";
 
-		String content = "<a href='http://localhost:8080/TodayLunch/register/emailCheck?id="+id+"'>인증 확인 링크</a> 링크를 눌러 인증을 완료하여주세요.";
+		String content = id+"님의 비밀번호는 ";
+		content+= passwd+" 입니다";
 
 		// 내용
 

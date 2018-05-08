@@ -3,11 +3,24 @@ package beans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+
+import org.springframework.dao.DataAccessException;
+
 import mail.Email;
 
-import DBConnect.DBConnectionMgr;
 
-public class ForgetInfoDAO {
+public interface ForgetInfoDAO {
+	
+	public String Forget_id(String email)  throws DataAccessException;
+	
+	public String Forget_passwd(HashMap<String, Object> forget)  throws DataAccessException;
+	
+	public String get_passwd(String id)throws DataAccessException;
+}
+	
+	
+/*public class ForgetInfoDAO {
 	
 	private DBConnectionMgr pool;
 
@@ -93,4 +106,4 @@ public class ForgetInfoDAO {
 	
 	
 
-}
+}*/

@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,37 +21,38 @@ html, body {
 </style>
 </head>
 <body>
-	<%-- <h3>${param.r_wi}, ${param.r_gy}</h3> --%>
 	<div id="map"></div>
-	<%-- <h4>${param.r_wi}, ${param.r_gy}</h4> --%>
+	<!-- 매개변수로 받은 위도, 경도 테스트 -->
+	<%-- <h4>${param.r_wi}, ${param.r_gy}</h4> --%><%-- 
 	<input type="hidden" name="r_wi" id="r_wi" value="${param.r_wi}">
-	<input type="hidden" name="r_gy" id="r_gy" value="${param.r_gy}">
+	<input type="hidden" name="r_gy" id="r_gy" value="${param.r_gy}"> --%>
 	
 	<script>
 	var map;
 	var marker;
-
+	//구글맵 API
 	function initMap() {
 	  var myLatlng = new google.maps.LatLng(${param.r_wi}, ${param.r_gy});
 	  var myOptions = {
-	    zoom: 16,
+	    zoom: 17,
 	    center: myLatlng,
 	    mapTypeId: google.maps.MapTypeId.ROADMAP
 	  }
 	  map = new google.maps.Map(document.getElementById("map"), myOptions);
-
+		//입력받은 위도와 경도로 마커를 지도에 생성
 	  marker = new google.maps.Marker({
 	    position: myLatlng,
 	    map: map
 	  });
-
+		
+		//지도 클릭시
 	  google.maps.event.addListener(map, 'click', function(event) {
-		  //alert(event.latLng.lat())
+		  //alert(event.latLng.lat())//클릭한 위치로 좌표 변경
 		  document.getElementById("r_wi").value=event.latLng.lat()
 		  document.getElementById("r_gy").value=event.latLng.lng()
 		  //alert(document.getElementById("r_wi").value+", "+document.getElementById("r_gy").value)
-	    marker.setPosition(event.latLng);
-	    map.setCenter(event.latLng);
+	    marker.setPosition(event.latLng);	//바뀐 좌표로 마커 이동
+	    map.setCenter(event.latLng);	//바뀐 좌표를 중앙점으로 하도록 지도 이동
 	  });
 	}
 

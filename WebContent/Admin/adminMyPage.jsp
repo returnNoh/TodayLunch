@@ -78,7 +78,7 @@
 								<div class="shopping-item">
 									<!-- Image -->
 									<a href="/TodayLunch/Admin/getPeople.lunch"><img class="img-responsive"
-										src="../img/shopping/shop1.jpg" alt="" /></a>
+										src="../img/shopping/mypage1.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
 									<h4 class="center">
 										<a href="/TodayLunch/Admin/getPeople.lunch">유저관리</a>
@@ -98,17 +98,17 @@
 								<div class="shopping-item">
 									<!-- Image -->
 									<a href="/TodayLunch/Admin/noticeList.lunch"><img class="img-responsive"
-										src="../img/shopping/shop1.jpg" alt="" /></a>
+										src="../img/shopping/mypage3.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
 									<h4 class="center">
-										<a href="/TodayLunch/Admin/noticeList.lunch">공지사항 관리</a>
+										<a href="Admin/noticeList.lunch">공지사항 관리</a>
 									</h4>
 									<!-- <span class="item-price pull-right"></span> -->
 									<div class="clearfix"></div>
 
 									<!-- Buy now button -->
 									<div class="visible-xs">
-										<a class="btn btn-danger btn-sm" href="/TodayLunch/Admin/noticeList.lunch">공지사항 관리</a>
+										<a class="btn btn-danger btn-sm" href="Admin/noticeList.lunch">공지사항 관리</a>
 									</div>
 								</div>
 							</div>
@@ -121,18 +121,18 @@
 								<!-- Shopping items -->
 								<div class="shopping-item">
 									<!-- Image -->
-									<a href="#"><img class="img-responsive"
-										src="../img/shopping/shop1.jpg" alt="" /></a>
+									<a href="/TodayLunch/Admin/sikInfo.lunch"><img class="img-responsive"
+										src="../img/shopping/mypage5.jpg" alt="" /></a>
 									<!-- Shopping item name / Heading -->
 									<h4 class="center">
-										<a href="#">모든 식권내역 확인</a>
+										<a href="Admin/sikInfo.lunch">모든 식권내역 확인</a>
 									</h4>
 									<!-- <span class="item-price pull-right"></span> -->
 									<div class="clearfix"></div>
 
 									<!-- Buy now button -->
 									<div class="visible-xs">
-										<a class="btn btn-danger btn-sm" href="#">모든 식권내역 확인</a>
+										<a class="btn btn-danger btn-sm" href="Admin/sikInfo.lunch">모든 식권내역 확인</a>
 									</div>
 								</div>
 							</div>

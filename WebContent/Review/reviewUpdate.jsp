@@ -1,57 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<title>게시판</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<script language="JavaScript" src="/js/script.js"></script>
+<title>고치장</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.inner-page .respond .title {
+	margin-bottom: 20px;
+}
+
+.inner-page .respond .form-group .comment {
+	margin-top: 0px
+}
+</style>
 </head>
-<body bgcolor="#e0ffff">  
-<center><b>글수정</b>
-<br>
-<form method="post" name="writeform" 
-           action="/TodayLunch/Review/reviewUpdatePro.lunch?pageNum=${pageNum}" 
-           onsubmit="return writeSave()">
-<table width="400" border="1" cellspacing="0" cellpadding="0"  bgcolor="#e0ffff" align="center">
-<c:forEach var="a" items="${article}">
-  <tr>
-    <td  width="70"  bgcolor="#b0e0e6" align="center">아이디</td>
-    <td align="left" width="330">
-       <input type="text" size="10" maxlength="10" name="p_id" value="${a.p_id}">
-	   <input type="hidden" name="re_num" value="${a.re_num}">
-	   <input type="hidden" name="r_name" value="${a.r_name}"></td>
-  </tr>
-  <tr>
-    <td  width="70"  bgcolor="#b0e0e6" align="center">작성시간</td>
-    <td align="left" width="330">
-       <input type="text" size="40" maxlength="30" name="re_time" 
-            value="${a.re_time}"></td>
-  </tr>
-  <tr>
-    <td  width="70"  bgcolor="#b0e0e6" align="center" >내 용</td>
-    <td align="left" width="330">
-     <textarea name="re_content" rows="13" cols="40">
-        ${a.re_content}
-     </textarea></td>
-  </tr>
-  <tr>
-    <td  width="70"  bgcolor="#b0e0e6" align="center">별점</td>
-    <td align="left" width="330">
-       <input type="text" size="40" maxlength="30" name="re_star" 
-            value="${article.re_star}"></td>
-  </tr>
-  </c:forEach>
-  <tr>      
-   <td colspan=2 bgcolor="#b0e0e6" align="center"> 
-     <input type="submit" value="글수정" >  
-     <input type="reset" value="다시작성">
-     <input type="button" value="취소" 
-       onclick="document.location.href='/TodayLunch/Rest/showRest.lunch?pageNum=${pageNum}'">
-   </td>
- </tr>
- </table>
-</form>     
+<body>
+<div class="respond well">
+	<div class="title">
+		<h5>고칩시당</h5></div>
+		<div class="form">
+			<form class="form-horizontal" role="form" action="/TodayLunch/Review/reviewUpdatePro.lunch?r_name=${r_name}&pageNum=${pageNum}">
+				<input type="hidden" name="p_id" value="${review.p_id}">
+				<input type="hidden" name="re_num" value="${review.re_num}">
+				<input type="hidden" name="r_name" value="${review.r_name}">
+				<input type="hidden" name="pageNum" value="${pageNum}">
+			<div class="form-group">
+			<label class="control-label col-lg-2" for="re_star"></label>
+			<div class="col-lg-10">
+				<input type="text" class="kv-fa rating-loading" value="${review.re_star}" data-size="xs" name="re_star"><br></div>
+			<label class="control-label col-lg-2" for="re_content"></label>
+			<div class="col-lg-10">
+				<textarea class="form-control" id="comment" rows="3" name="re_content">${review.re_content}</textarea><br></div>
+			<div class="col-lg-offset-2 col-lg-10">
+				<button id="submit" type="submit" class="btn btn-danger btn-sm">ㄱㄱ</button>	&nbsp;
+				<button type="reset" class="btn btn-default btn-sm">다시 쓸게</button></div>
+			</div>
+			</form>
+		</div></div>	
 </body>
-</html>      
+<script>
+ $(document).on('ready', function(){
+    $('.kv-fa').rating({
+        hoverOnClear: false,
+        theme: 'krajee-fa'
+    });
+});                 
+</script>
+</html>    

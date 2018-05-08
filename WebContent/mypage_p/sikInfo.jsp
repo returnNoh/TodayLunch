@@ -50,9 +50,8 @@
 				<!-- Heading -->
 				<h2 class="white">식권 사용 내역</h2>
 				<ol class="breadcrumb">
-					<li><a href="../index.jsp">메인</a></li>
-					<li><a href="myPage.lunch">마이 페이지</a></li>
-					<li class="active">식권 사용 내역</li>
+					<li><a href="/TodayLunch/main.lunch">HOME</a></li>
+					<li><a href="myPage.lunch">MY PAGE</a></li>
 				</ol>
 				<div class="clearfix"></div>
 			</div>
@@ -66,10 +65,16 @@
 			<div class="inner-menu">
 				<div class="container">
 					<!-- Heading -->
-					<h3 style="border-bottom: 4px double #eee;">${p_id}의정보</h3>
-					<div class="row">
-						<c:if test="${u_sikList!=null }">
-							<c:forEach var="i" items="${u_sik}" begin="0">
+					<h3 style="border-bottom: 4px double #6C702F;">${p_id}의정보
+						&nbsp;
+						<button type="button" class="btn btn-sm"
+							onclick="location.href='/TodayLunch/Mypage_p/myPage.lunch'"
+							style="background-color: salmon; color: green; border-radius: 50px; margin-bottom: 5px;">BACK</button>
+					</h3>
+					<c:if test="${u_sik!=null }">
+						<div class="row">
+							<h3>현재 식권: ${sik}</h3>
+							<c:forEach var="i" items="${list}" begin="0">
 								<div class="col-md-4 col-sm-6">
 									<!-- Inner page menu list -->
 									<div class="menu-list">
@@ -77,31 +82,90 @@
 										<h3>${i.u_time}</h3>
 										<!-- Image for menu list -->
 										<img class="img-responsive" src="../img/menu/menu2.jpg" alt="" />
-										<!-- Menu list items -->
-										<div class="menu-list-item">
-											<!-- Heading / Dish name -->
-											<h4 class="pull-left">식권 개수</h4>
-											<!-- Dish price -->
-											<span class="price pull-right">${s_num}개</span>
-											<div class="clearfix"></div>
-										</div>
-										<!-- Menu list items -->
-										<div class="menu-list-item">
-											<!-- Heading / Dish name -->
-											<h4 class="pull-left">식당 이름</h4>
-											<!-- Dish price -->
-											<span class="price pull-right">${i.r_name}</span>
-											<div class="clearfix"></div>
-										</div>
+										<c:if test="${i.s_num > 0 }">
+											<!-- Menu list items -->
+											<div class="menu-list-item">
+												<!-- Heading / Dish name -->
+												<h4 class="pull-left">사용 개수</h4>
+												<!-- Dish price -->
+												<span class="price pull-right">${i.s_num} 개</span>
+												<div class="clearfix"></div>
+											</div>
+										</c:if>
+										<c:if test="${i.s_num < 0 }">
+											<!-- Menu list items -->
+											<div class="menu-list-item">
+												<!-- Heading / Dish name -->
+												<h4 class="pull-left">충전 개수</h4>
+												<!-- Dish price -->
+												<span class="price pull-right">${i.s_num*-1} 개</span>
+												<div class="clearfix"></div>
+											</div>
+										</c:if>
+										<!-- 충전이라면 -->
+										<c:if test="${i.r_name=='admin'}">
+											<div class="menu-list-item">
+												<!-- Heading / Dish name -->
+												<h4 class="pull-left"></h4>
+												<!-- Dish price -->
+												<span class="price pull-right">충전 완료</span>
+												<div class="clearfix"></div>
+											</div>
+										</c:if>
+										<!--충전 아니면-->
+										<c:if test="${i.r_name!='admin'}">
+											<!-- Menu list items -->
+											<div class="menu-list-item">
+												<!-- Heading / Dish name -->
+												<h4 class="pull-left">식당 이름</h4>
+												<!-- Dish price -->
+												<span class="price pull-right">${i.r_name}</span>
+												<div class="clearfix"></div>
+											</div>
+										</c:if>
 									</div>
 								</div>
 							</c:forEach>
-						</c:if>
-						<c:if test="${u_sikList==null }">
 
+						</div>
+						<div class="row text-center">
+							<ul class="pagination">
+								<c:if test="${pgList.startPage>pgList.blockSize}">
+									<li><a
+										href="/TodayLunch/Mypage_p/sikInfo.lunch?pageNum=${pgList.startPage-pgList.blockSize}">«</a>
+									</li>
+								</c:if>
+
+								<c:forEach var="i" begin="${pgList.startPage}"
+									end="${pgList.endPage}">
+
+									<c:if test="${i==pgList.currentPage}">
+										<li class="active" style="background-color: #cb7464"><a
+											href="/TodayLunch/Mypage_p/sikInfo.lunch?pageNum=${i}"> <b>${i}</b>
+										</a></li>
+									</c:if>
+
+									<c:if test="${i!=pgList.currentPage}">
+										<li><a
+											href="/TodayLunch/Mypage_p/sikInfo.lunch?pageNum=${i}">${i}</a>
+										</li>
+									</c:if>
+
+								</c:forEach>
+
+								<c:if test="${pgList.endPage<pgList.pageCount}">
+									<li><a
+										href="/TodayLunch/Mypage_p/sikInfo.lunch?pageNum=${pgList.startPage+pgList.blockSize}">»</a>
+									</li>
+								</c:if>
+							</ul>
+						</div>
+					</c:if>
+					<c:if test="${u_sik==null }">
+						<div class="row">
 							<h2 class="text-center">사용된 내역이 없습니다.</h2>
-						</c:if>
-					</div>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>

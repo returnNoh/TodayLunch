@@ -40,9 +40,9 @@
 				<!-- Image -->
 				<img class="img-responsive" src="../img/crown-white.png" alt="" />
 				<!-- Heading -->
-				<h2 class="white">Update Member Information</h2>
+				<h2 class="white">회원 정보 수정</h2>
 				<ol class="breadcrumb">
-					<li><a href="index.html">Home</a></li>
+					<li><a href="../index.jsp">Home</a></li>
 				</ol>
 				<div class="clearfix"></div>
 			</div>
@@ -60,15 +60,15 @@
 								<!-- Wrapper for slides -->
 								<div class="carousel-inner">
 									<div class="item active">
-										<img class="img-responsive" src="../img/booking/table1.jpg"
+										<img class="img-responsive" src="../img/booking/booking1.jpg"
 											alt="" />
 									</div>
 									<div class="item">
-										<img class="img-responsive" src="../img/booking/table2.jpg"
+										<img class="img-responsive" src="../img/booking/booking2.jpg"
 											alt="" />
 									</div>
 									<div class="item">
-										<img class="img-responsive" src="../img/booking/table3.jpg"
+										<img class="img-responsive" src="../img/booking/booking3.jpg"
 											alt="" />
 									</div>
 								</div>
@@ -92,47 +92,46 @@
 								<form role="form" name="updateform" method="post"
 									action="/TodayLunch/Mypage_p/updateInfoPro.lunch">
 									<!-- Form label -->
-									<label>ID</label>
+									<label style="color:#513629">ID</label>
 									<div class="form-group">
 										<!-- Form input -->
-										<input class="form-control" type="text" value="${memd.p_id}"
+										<input class="form-control" type="text" value="${mdto.p_id}"
 											disabled /> <input type="hidden" name="p_id"
-											value="${memd.p_id}">
+											value="${mdto.p_id}">
 									</div>
 									<!-- Form label -->
-									<label>PASSWORD</label>
+									<label style="color:#513629">PASSWORD</label>
 									<div class="form-group">
 										<!-- Form input -->
 										<input class="form-control" type="password" name="p_passwd"
-											size="15" value="${memd.p_passwd}" />
+											size="15" value="${mdto.p_passwd}" />
 									</div>
 									<!-- Form label -->
-									<label>NAME</label>
+									<label style="color:#513629">NAME</label>
 									<div class="form-group">
 										<!-- Form input -->
 										<input class="form-control" type="text" name="p_name"
-											size="15" value="${memd.p_name}" />
+											size="15" value="${mdto.p_name}" />
 									</div>
 									<!-- Form label -->
-									<label>EMAIL</label>
+									<label style="color:#513629">EMAIL</label>
 									<div class="form-group">
 										<!-- Form input -->
 										<input class="form-control" type="text" name="p_email"
-											size="15" value="${memd.p_email}" />
+											size="15" value="${mdto.p_email}" />
 									</div>
 									<!-- Form label -->
-									<label>TICKET CONFIRM NUMBER</label>
+									<label style="color:#513629">TICKET CONFIRM NUMBER</label>
 									<div class="form-group">
 										<!-- Form text area -->
 										<input class="form-control" type="password" name="p_siknum"
-											size="10" value="${memd.p_siknum}" />
+											size="10" value="${mdto.p_siknum}" />
 									</div>
 									<!-- Form button -->
-									<button class="btn btn-danger btn-sm" type="submit">COMPLETE</button>
+									<button class="btn btn-sm" type="submit" style="background-color:#ccccff ;border-radius:20px;color:#513629;">COMPLETE</button>
 									&nbsp;
-									<button class="btn btn-danger btn-sm" type="reset">RESET</button>
-									&nbsp;
-									<button class="btn btn-default btn-sm" type="button"
+									<button class="btn btn-sm" type="button" 
+									style="background-color:#E7C1BA;border-radius:20px;color:#513629"
 										onclick="history.back()">BACK</button>
 								</form>
 							</div>
