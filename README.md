@@ -26,6 +26,7 @@
 
 ##### 프레젠테이션
 - [Spring 설정 prezi 프레젠테이션](https://prezi.com/view/Z9vrQ8WIKaw4OIbVlLWX/)
+- [final 발표](https://prezi.com/ypdtkey_ptz9/presentation)
 
 
 
