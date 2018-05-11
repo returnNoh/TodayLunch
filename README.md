@@ -4,21 +4,19 @@
 팀프로젝트로 시작한 강남 점심뷔페 소개 및 중계 사이트
 
 웹 프로젝트 #TodayLunch 입니다.
-
-### 현재 다른 팀원들이 Spring화 중이여서 소스코드는 볼 수 없습니다.
           
 
 본 깃허브 작성자 returnNoh가 맡은 부분입니다.
 
 ###### 프론트엔드
 - [템플레이트번역 & 템플레이트 활용](WebContent/main.jsp)
+- [top&footer 반응형메뉴]()
 
 ###### 백엔드 & 프론트엔드
-- [회원가입(이메일인증)](WebContent/Register)
 - [아이디,비밀번호 찾기(이메일)](WebContent/Login)
 - [식권 구매&사용](WebContent/Mypage_p)
-- [관리자 페이지(회원관리 게시판 , 공지관리 게시판)](WebContent/Admin)
-- [공지사항 불러오기(ajax)](WebContent/Admin/notice.jsp) restful api를 받아서 하는걸로 변경 완
+- [관리자 페이지(회원관리 게시판 , 공지관리 게시판,식권내역 게시판)](WebContent/Admin)
+- [공지사항 불러오기(ajax&rest api제작)](WebContent/Admin/notice.jsp)
 - [구글맵 api](WebContent/map.jsp)
 
 ###### DB 설계
