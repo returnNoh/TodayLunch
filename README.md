@@ -7,10 +7,10 @@
 
 ###### 프론트엔드
 - [템플레이트번역 & 템플레이트 활용](WebContent/main.jsp)
-- [top&footer 반응형메뉴]()
+- [top&footer 반응형메뉴](WebContent)
 
 ###### 백엔드 & 프론트엔드
-- [아이디,비밀번호 찾기(이메일)](WebContent/Login)
+- [아이디,비밀번호 찾기(이메일)](WebContent/Login/forget_Info.jsp)
 - [식권 구매&사용](WebContent/Mypage_p)
 - [관리자 페이지(회원관리 게시판 , 공지관리 게시판,식권내역 게시판)](WebContent/Admin)
 - [공지사항 불러오기(ajax&rest api제작)](WebContent/Admin/notice.jsp)
